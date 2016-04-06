@@ -1,5 +1,14 @@
 {% extends "base.html" %}
 {% load staticfiles %}
+
 {% block content %}
-Hello
+{% endblock %}
+
+{% block sidebar %}
+<ul>
+{% for recipe in recipes %}
+<li><a href="{% url 'recipe:detail' recipe.slug %}">{{ recipe }}</a></li>
+<br />
+{% endfor %}
+</ul>
 {% endblock %}

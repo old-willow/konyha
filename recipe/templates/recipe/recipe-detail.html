@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+
+{% block recipe-detail %}
+<h2>{{ recipe.title }}</h2>
+<br />
+<strong>Description: </strong>
+{{ recipe.description }}
+
+<br />
+<br />
+<a href="{% url 'recipe:list' %}">Return to recipe list</a>
+{% endblock %}

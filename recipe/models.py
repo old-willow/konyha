@@ -112,7 +112,7 @@ class Recipe(models.Model):
     title = models.CharField(max_length=120)
     slug = models.SlugField()
     food_type = models.CharField(max_length=30, choices=FOOD_TYPE, default='0')
-    description = models.TextField()
+    description = models.TextField(_('description'))
     pub_date = models.DateTimeField(_('Publication date'), auto_now_add=True)
     modified_date = models.DateTimeField(_('Modification date'), auto_now=True)
     author = models.ForeignKey(RecipeAuthor,
@@ -129,6 +129,9 @@ class Recipe(models.Model):
 
     def __unicode__(self):
         return self.title
+
+    def get_field_name(self):
+        return self.verbose_name
 
     class Meta:
         ordering = ['-pub_date', 'title', ]

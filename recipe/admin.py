@@ -60,7 +60,7 @@ class RecipeAdmin(admin.ModelAdmin):
     prepopulated_fields = {'slug': ('title', )}
     readonly_fields = ('pub_date', 'modified_date', )
 
-    inlines = [RecipeIngredientInline]
+    #inlines = [RecipeIngredientInline]
 
 
 admin.site.register(RecipeAuthor, RecipeAuthorAdmin)
