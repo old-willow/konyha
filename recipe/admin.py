@@ -3,7 +3,8 @@ from django.utils.html import mark_safe
 from django.db import models
 from django.forms import ClearableFileInput
 
-from recipe.models import RecipeAuthor, RecipeImage, Recipe, Ingrediant, Unit
+from .models import RecipeAuthor, RecipeImage, RecipeIngredient, Recipe, Ingrediant  # , Unit
+from .forms import RecipeIngredientFormset
 
 
 class RecipeAuthorAdmin(admin.ModelAdmin):
@@ -40,16 +41,32 @@ class RecipeAuthorAdmin(admin.ModelAdmin):
 #    extra = 1
 
 
-#class RecipeAdmin(admin.ModelAdmin):
-#    pass
-#    inlines = [
-#        RecipeImageInline,
-#    ]
+class RecipeIngredientAdmin(admin.ModelAdmin):
+    fields = ('ingredient', 'quantity', 'unit', )
+
+
+class RecipeIngredientInline(admin.TabularInline):
+    model = Recipe.ingredient.through
+    formset = RecipeIngredientFormset
+    extra = 1
+
+
+class RecipeAdmin(admin.ModelAdmin):
+    #fields = ('title', 'slug', 'food_type', 'description', 'pub_date',
+    #          'modified_date', 'author', 'preparation_time',
+    #          'cooking_temp', 'image', 'independent_author', 'source_url', )
+
+    exclude = ('ingredient', )
+    prepopulated_fields = {'slug': ('title', )}
+    readonly_fields = ('pub_date', 'modified_date', )
+
+    inlines = [RecipeIngredientInline]
 
 
 admin.site.register(RecipeAuthor, RecipeAuthorAdmin)
 admin.site.register(RecipeImage)
-admin.site.register(Recipe)
-#admin.site.register(Recipe, RecipeAdmin)
 admin.site.register(Ingrediant)
-admin.site.register(Unit)
+admin.site.register(RecipeIngredient, RecipeIngredientAdmin)
+admin.site.register(Recipe, RecipeAdmin)
+#admin.site.register(Recipe, RecipeAdmin)
+#admin.site.register(Unit)

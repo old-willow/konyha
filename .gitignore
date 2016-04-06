@@ -1,0 +1,6 @@
+.swap/
+.backup/
+*.pyc
+*.swp
+.ropeproject/
+db.sqlite3

@@ -102,6 +102,9 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 
+# Registration setup for django-registration package
+REGISTRATION_OPEN = True
+
 # Internationalization
 # https://docs.djangoproject.com/en/1.9/topics/i18n/
 

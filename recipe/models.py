@@ -34,22 +34,45 @@ class RecipeImage(models.Model):
         return self.title
 
 
+#class Unit(models.Model):
+#    MEASURING_UNITS = (
+#        ('0', 'Choose measure unit...'),
+#        ('gramm', 'g'),
+#        ('dekagramm', 'dkg'),
+#        ('kilogramm', 'kg'),
+#        ('tea_spun', 'Tea spun'),
+#        ('table_spun', 'Table spun'),
+#        ('quantity', 'quantity'),
+#        ('piece', 'piece'),
+#    )
+#
+#    measure_unit = models.CharField(max_length=20, choices=MEASURING_UNITS, default='0')
+#    #quantity = models.IntegerField()
+#    #ingrediant = models.ForeignKey(Ingrediant, on_delete=models.CASCADE)
+#
+#    def __unicode__(self):
+#        return self.get_measure_unit_display()
+
+
 class Ingrediant(models.Model):
     SPICES = (
-        ('0', _('Choose spice...')),
+        ('0', _('Neutral')),
         ('solt', _('Solt')),
         ('sugar', _('Sugar')),
+        ('bitter', _('Bitter')),
+        ('acid', _('Acid')),
     )
 
     name = models.CharField(max_length=100)
     #recipe = models.ManyToManyField(Recipe)
     spice_type = models.CharField(max_length=30, choices=SPICES, default='0')
+    #unit = models.CharField(max_length=15, choices=MEASURING_UNITS, default='0')
 
     def __unicode__(self):
         return self.name
 
 
-class Unit(models.Model):
+class RecipeIngredient(models.Model):
     MEASURING_UNITS = (
         ('0', 'Choose measure unit...'),
         ('gramm', 'g'),
@@ -60,13 +83,17 @@ class Unit(models.Model):
         ('quantity', 'quantity'),
         ('piece', 'piece'),
     )
-
-    measure_unit = models.CharField(max_length=20, choices=MEASURING_UNITS, default='0')
-    quantity = models.IntegerField()
-    ingrediant = models.ForeignKey(Ingrediant, on_delete=models.CASCADE)
+    ingredient = models.ForeignKey(Ingrediant, on_delete=models.CASCADE)
+    quantity = models.CharField(max_length=15)
+    #unit = models.ForeignKey(Unit, on_delete=models.CASCADE)
+    unit = models.CharField(max_length=20, choices=MEASURING_UNITS, default='0')
 
     def __unicode__(self):
-        return self.measure_unit
+        return self.ingredient.name + ': ' + self.quantity + ' ' + self.unit
+
+    class Meta:
+        ordering = ['ingredient', ]
+        verbose_name = 'included ingredient'
 
 
 class Recipe(models.Model):
@@ -83,17 +110,20 @@ class Recipe(models.Model):
     )
 
     title = models.CharField(max_length=120)
+    slug = models.SlugField()
     food_type = models.CharField(max_length=30, choices=FOOD_TYPE, default='0')
     description = models.TextField()
     pub_date = models.DateTimeField(_('Publication date'), auto_now_add=True)
     modified_date = models.DateTimeField(_('Modification date'), auto_now=True)
-    author = models.ForeignKey(RecipeAuthor, on_delete=models.CASCADE)
+    author = models.ForeignKey(RecipeAuthor,
+                               related_name='recipes',
+                               on_delete=models.CASCADE)
     image = models.ForeignKey(RecipeImage, on_delete=models.CASCADE,
-                              verbose_name=_('Recipe images'),)
+                              verbose_name=_('Recipe images'))
     preparation_time = models.CharField(max_length=20, blank=True, null=True)
     cooking_temp = models.CharField(max_length=10, blank=True, null=True)
-    ingrediants = models.ManyToManyField(Ingrediant)
-    independet_author = models.CharField(max_length=120, blank=True, null=True)
+    ingredient = models.ManyToManyField(RecipeIngredient)
+    independent_author = models.CharField(max_length=120, blank=True, null=True)
     source_url = models.CharField(_('Source web site'),
                                   max_length=250, blank=True, null=True)
 
