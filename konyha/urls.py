@@ -21,7 +21,11 @@ from django.conf import settings
 
 from filebrowser.sites import site
 
+from recipe import views
+
+
 urlpatterns = [
+    url(r'^$', views.home),
     url(r'^admin/filebrowser/', site.urls),
     url(r'^grappelli/', include('grappelli.urls')),
     url(r'^tinymce/', include('tinymce.urls')),

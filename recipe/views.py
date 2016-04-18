@@ -3,6 +3,12 @@ from django.shortcuts import render
 from .models import Recipe
 
 
+def home(request):
+    context = {}
+
+    return render(request, 'recipe/home.html', context)
+
+
 def recipe_list(request):
     recipes = Recipe.objects.all()
 
