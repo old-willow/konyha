@@ -3,8 +3,10 @@ from django.utils.html import mark_safe
 from django.db import models
 from django.forms import ClearableFileInput
 
+#from mce_filebrowser.admin import MCEFilebrowserAdmin
+
 from .models import RecipeAuthor, RecipeImage, RecipeIngredient, Recipe, Ingrediant  # , Unit
-from .forms import RecipeIngredientFormset
+#from .forms import RecipeIngredientFormset
 
 
 class RecipeAuthorAdmin(admin.ModelAdmin):
@@ -36,9 +38,9 @@ class RecipeAuthorAdmin(admin.ModelAdmin):
     #    pass
 
 
-#class RecipeImageInline(admin.TabularInline):
-#    model = RecipeImage
-#    extra = 1
+class RecipeImageInline(admin.TabularInline):
+    model = RecipeImage
+    extra = 1
 
 
 class RecipeIngredientAdmin(admin.ModelAdmin):
@@ -47,20 +49,22 @@ class RecipeIngredientAdmin(admin.ModelAdmin):
 
 class RecipeIngredientInline(admin.TabularInline):
     model = Recipe.ingredient.through
-    formset = RecipeIngredientFormset
+    #formset = RecipeIngredientFormset
     extra = 1
 
 
 class RecipeAdmin(admin.ModelAdmin):
-    #fields = ('title', 'slug', 'food_type', 'description', 'pub_date',
-    #          'modified_date', 'author', 'preparation_time',
-    #          'cooking_temp', 'image', 'independent_author', 'source_url', )
+#class RecipeAdmin(MCEFilebrowserAdmin):
+    fields = ('title', 'author', 'slug', 'food_type', 'description', 'pub_date',
+              'modified_date', 'preparation_time',
+              'cooking_temp', 'independent_author', 'source_url', )
 
-    exclude = ('ingredient', )
+    filter_horizontal = ('ingredient', )
+    #exclude = ('ingredient', )
     prepopulated_fields = {'slug': ('title', )}
     readonly_fields = ('pub_date', 'modified_date', )
 
-    #inlines = [RecipeIngredientInline]
+    inlines = [RecipeImageInline, RecipeIngredientInline, ]
 
 
 admin.site.register(RecipeAuthor, RecipeAuthorAdmin)

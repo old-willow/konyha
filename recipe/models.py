@@ -6,6 +6,9 @@ from django.utils.translation import ugettext as _
 
 from django.utils.html import mark_safe
 
+from tinymce import models as tinymce_models
+from filebrowser.fields import FileBrowseField
+
 
 class RecipeAuthor(models.Model):
     user = models.ForeignKey(User, help_text="Please provide chef",
@@ -23,15 +26,6 @@ class RecipeAuthor(models.Model):
 
     def __unicode__(self):
         return self.user.username
-
-
-class RecipeImage(models.Model):
-    title = models.CharField(max_length=120)
-    image = models.ImageField(upload_to='images/recipes/', max_length=255)
-    #recipe = models.ForeignKey(Recipe, on_delete=models.CASCADE)
-
-    def __unicode__(self):
-        return self.title
 
 
 #class Unit(models.Model):
@@ -80,8 +74,8 @@ class RecipeIngredient(models.Model):
         ('kilogramm', 'kg'),
         ('tea_spun', 'Tea spun'),
         ('table_spun', 'Table spun'),
-        ('quantity', 'quantity'),
-        ('piece', 'piece'),
+        ('quantity', 'Quantity'),
+        ('piece', 'Piece'),
     )
     ingredient = models.ForeignKey(Ingrediant, on_delete=models.CASCADE)
     quantity = models.CharField(max_length=15)
@@ -94,6 +88,7 @@ class RecipeIngredient(models.Model):
     class Meta:
         ordering = ['ingredient', ]
         verbose_name = 'included ingredient'
+        verbose_name = 'included ingredients'
 
 
 class Recipe(models.Model):
@@ -112,14 +107,15 @@ class Recipe(models.Model):
     title = models.CharField(max_length=120)
     slug = models.SlugField()
     food_type = models.CharField(max_length=30, choices=FOOD_TYPE, default='0')
-    description = models.TextField(_('description'))
+    #description = models.TextField(_('description'))
+    description = tinymce_models.HTMLField(_('description'))
     pub_date = models.DateTimeField(_('Publication date'), auto_now_add=True)
     modified_date = models.DateTimeField(_('Modification date'), auto_now=True)
     author = models.ForeignKey(RecipeAuthor,
                                related_name='recipes',
                                on_delete=models.CASCADE)
-    image = models.ForeignKey(RecipeImage, on_delete=models.CASCADE,
-                              verbose_name=_('Recipe images'))
+    #image = models.ForeignKey(RecipeImage, on_delete=models.CASCADE,
+    #                          verbose_name=_('Recipe images'))
     preparation_time = models.CharField(max_length=20, blank=True, null=True)
     cooking_temp = models.CharField(max_length=10, blank=True, null=True)
     ingredient = models.ManyToManyField(RecipeIngredient)
@@ -135,3 +131,19 @@ class Recipe(models.Model):
 
     class Meta:
         ordering = ['-pub_date', 'title', ]
+
+
+class RecipeImage(models.Model):
+    title = models.CharField(max_length=120)
+    #image = models.ImageField(upload_to='images/recipes/', max_length=255)
+    image = FileBrowseField(_('Image'),
+                            max_length=200,
+                            directory='images/recipes/',
+                            extensions=['.jpg'])
+    recipe = models.ForeignKey(Recipe, on_delete=models.CASCADE)
+
+    def __unicode__(self):
+        return self.title
+
+    def get_absolute_url(self):
+        return "/imagesrecipes/%s" % (self.image, )

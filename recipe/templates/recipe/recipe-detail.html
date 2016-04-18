@@ -4,10 +4,23 @@
 {% block recipe-detail %}
 <h2>{{ recipe.title }}</h2>
 <br />
-<strong>Description: </strong>
-{{ recipe.description }}
+<!-- <strong>Description: </strong> -->
+{{ recipe.description|safe }}
+
+<!-- <strong>Image:</strong> -->
+<ul>
+{% for image in recipe.recipeimage_set.all %}
+<li>
+<a class="gallery" href="{{ image.image.url }}"><img src="{{ image.image.url }}" alt="{{ image.image.title }}"width="220" /></a>
+</li>
+{% endfor %}
+</ul>
 
 <br />
 <br />
 <a href="{% url 'recipe:list' %}">Return to recipe list</a>
+<script>
+jQuery('a.gallery').colorbox({rel:"gallery", width: "600px", arrowKey: true, title: "Pancakes"});
+</script>
+
 {% endblock %}
