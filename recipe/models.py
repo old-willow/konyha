@@ -146,4 +146,4 @@ class RecipeImage(models.Model):
         return self.title
 
     def get_absolute_url(self):
-        return "/imagesrecipes/%s" % (self.image, )
+        return "/images/recipes/%s" % (self.image, )
