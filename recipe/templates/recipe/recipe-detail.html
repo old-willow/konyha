@@ -21,17 +21,20 @@
 {{ recipe.description|safe }}
 
 <!-- <strong>Image:</strong> -->
+<div class="image-thumbs ">
 <ul class="list-unstyled">
 {% for image in recipe.recipeimage_set.all %}
-<li class="pull-left">
+<li class="go-left">
 <a class="gallery" href="{{ image.image.url }}"><img src="{% version image.image 'thumbnail' %}" alt="{{ image.image.title }}" title="{{ image.image.title }}"/></a>
 </li>
 {% endfor %}
 </ul>
+</div>
 
-<br />
-<br />
-<a class="btn btn-lg btn-primary" href="{% url 'recipe:list' %}">Return to recipe list</a>
+<div class="clear">
+<a class="btn btn-lg" href="{% url 'recipe:list' %}">Return to recipe list</a>
+</div>
+
 <script>
 jQuery('a.gallery').colorbox({rel:"gallery", width: "600px", arrowKey: true, title: "Pancakes"});
 </script>
