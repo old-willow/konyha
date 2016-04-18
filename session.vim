@@ -231,6 +231,7 @@ set lazyredraw
 set listchars=tab:→\ ,eol:⏎,extends:>,precedes:<
 set matchtime=3
 set modelines=1
+set operatorfunc=<SNR>52_go
 set ruler
 set runtimepath=~/.vim,~/.vim/bundle/ctrlp.vim,~/.vim/bundle/fugitive,~/.vim/bundle/nerdcommenter,~/.vim/bundle/nerdtree,~/.vim/bundle/python-mode,~/.vim/bundle/snipmate,~/.vim/bundle/syntastic,~/.vim/bundle/tagbar,~/.vim/bundle/twig,~/.vim/bundle/vdebug,~/.vim/bundle/vim-colors-solarized,~/.vim/bundle/vim-commentary,~/.vim/bundle/vim-javascript,~/.vim/bundle/vim-markdown,~/.vim/bundle/vim-signature,~/.vim/bundle/vim-surround,~/opt/vim/share/vim/vimfiles,~/opt/vim/share/vim/vim74,~/opt/vim/share/vim/vimfiles/after,~/.vim/bundle/snipmate/after,~/.vim/bundle/python-mode/after,~/.vim/after
 set scrolloff=3
@@ -264,13 +265,15 @@ if expand('%') == '' && !&modified && line('$') <= 1 && getline(1) == ''
   let s:wipebuf = bufnr('%')
 endif
 set shortmess=aoO
-badd +0 recipe/templates/recipe/recipe-detail.html
-badd +0 recipe/models.py
-badd +0 konyha/urls.py
-badd +0 konyha/settings.py
-badd +0 templates/base.html
-badd +0 recipe/views.py
-badd +0 recipe/admin.py
+badd +1 recipe/templates/recipe/recipe-detail.html
+badd +1 recipe/models.py
+badd +1 konyha/urls.py
+badd +1 konyha/settings.py
+badd +1 templates/base.html
+badd +1 recipe/views.py
+badd +1 recipe/admin.py
+badd +1 recipe/static/recipe/style.css
+badd +0 recipe/static/recipe/css/style.css
 argglobal
 silent! argdel *
 argadd recipe/templates/recipe/recipe-detail.html
@@ -279,16 +282,12 @@ edit konyha/urls.py
 set splitbelow splitright
 wincmd _ | wincmd |
 split
-wincmd _ | wincmd |
-split
-2wincmd k
-wincmd w
+1wincmd k
 wincmd w
 wincmd t
 set winheight=1 winwidth=1
-exe '1resize ' . ((&lines * 33 + 34) / 68)
-exe '2resize ' . ((&lines * 27 + 34) / 68)
-exe '3resize ' . ((&lines * 3 + 34) / 68)
+exe '1resize ' . ((&lines * 32 + 34) / 68)
+exe '2resize ' . ((&lines * 32 + 34) / 68)
 argglobal
 let s:cpo_save=&cpo
 set cpo&vim
@@ -491,6 +490,7 @@ setlocal indentkeys=!^F,o,O,<:>,0),0],0},=elif,=except
 setlocal noinfercase
 setlocal iskeyword=@,48-57,_,192-255
 setlocal keywordprg=
+set linebreak
 setlocal nolinebreak
 setlocal nolisp
 setlocal lispwords=
@@ -522,7 +522,7 @@ setlocal nospell
 setlocal spellcapcheck=[.?!]\\_[\\])'\"\	\ ]\\+
 setlocal spellfile=
 setlocal spelllang=en
-setlocal statusline=%!pyeval('powerline.statusline(4)')
+setlocal statusline=%!pyeval('powerline.statusline(3)')
 setlocal suffixesadd=
 setlocal swapfile
 setlocal synmaxcol=300
@@ -541,11 +541,11 @@ setlocal nowinfixwidth
 set nowrap
 setlocal nowrap
 setlocal wrapmargin=0
-let s:l = 34 - ((16 * winheight(0) + 16) / 33)
+let s:l = 26 - ((8 * winheight(0) + 16) / 32)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-34
+26
 normal! 0
 wincmd w
 argglobal
@@ -751,6 +751,7 @@ setlocal indentkeys=!^F,o,O,<:>,0),0],0},=elif,=except
 setlocal noinfercase
 setlocal iskeyword=@,48-57,_,192-255
 setlocal keywordprg=
+set linebreak
 setlocal nolinebreak
 setlocal nolisp
 setlocal lispwords=
@@ -782,7 +783,7 @@ setlocal nospell
 setlocal spellcapcheck=[.?!]\\_[\\])'\"\	\ ]\\+
 setlocal spellfile=
 setlocal spelllang=en
-setlocal statusline=%!pyeval('powerline.statusline(5)')
+setlocal statusline=%!pyeval('powerline.statusline(4)')
 setlocal suffixesadd=
 setlocal swapfile
 setlocal synmaxcol=300
@@ -801,137 +802,15 @@ setlocal nowinfixwidth
 set nowrap
 setlocal nowrap
 setlocal wrapmargin=0
-let s:l = 134 - ((15 * winheight(0) + 13) / 27)
+let s:l = 160 - ((18 * winheight(0) + 16) / 32)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-134
+160
 normal! 0
 wincmd w
-argglobal
-enew
-setlocal keymap=
-setlocal noarabic
-setlocal autoindent
-setlocal backupcopy=
-setlocal balloonexpr=
-setlocal nobinary
-setlocal nobreakindent
-setlocal breakindentopt=
-setlocal bufhidden=wipe
-setlocal buflisted
-setlocal buftype=quickfix
-setlocal cindent
-setlocal cinkeys=0{,0},0),:,0#,!^F,o,O,e
-setlocal cinoptions=
-setlocal cinwords=if,else,while,do,for,switch
-set colorcolumn=+1
-setlocal colorcolumn=+1
-setlocal comments=s1:/*,mb:*,ex:*/,://,b:#,:%,:XCOMM,n:>,fb:-
-setlocal commentstring=/*%s*/
-setlocal complete=.,w,b,u,t,i
-setlocal concealcursor=
-setlocal conceallevel=0
-setlocal completefunc=
-setlocal nocopyindent
-setlocal cryptmethod=
-setlocal nocursorbind
-setlocal nocursorcolumn
-set cursorline
-setlocal cursorline
-setlocal define=
-setlocal dictionary=
-setlocal nodiff
-setlocal equalprg=
-setlocal errorformat=
-setlocal expandtab
-if &filetype != 'qf'
-setlocal filetype=qf
-endif
-setlocal fixendofline
-set foldcolumn=4
-setlocal foldcolumn=4
-setlocal foldenable
-set foldexpr=PythonFoldExpr(v:lnum)
-setlocal foldexpr=PythonFoldExpr(v:lnum)
-setlocal foldignore=#
-set foldlevel=2
-setlocal foldlevel=0
-setlocal foldmarker={{{,}}}
-set foldmethod=expr
-setlocal foldmethod=manual
-setlocal foldminlines=1
-set foldnestmax=10
-setlocal foldnestmax=10
-set foldtext=PythonFoldText()
-setlocal foldtext=PythonFoldText()
-setlocal formatexpr=
-setlocal formatoptions=cq
-setlocal formatlistpat=^\\s*\\d\\+[\\]:.)}\\t\ ]\\s*
-setlocal grepprg=
-setlocal iminsert=2
-setlocal imsearch=2
-setlocal include=
-setlocal includeexpr=
-setlocal indentexpr=
-setlocal indentkeys=0{,0},:,0#,!^F,o,O,e
-setlocal noinfercase
-setlocal iskeyword=@,48-57,_,192-255
-setlocal keywordprg=
-setlocal nolinebreak
-setlocal nolisp
-setlocal lispwords=
-set list
-setlocal list
-setlocal makeprg=
-setlocal matchpairs=(:),{:},[:]
-setlocal modeline
-setlocal nomodifiable
-setlocal nrformats=bin,octal,hex
-set number
-setlocal number
-setlocal numberwidth=4
-setlocal omnifunc=syntaxcomplete#Complete
-setlocal path=
-setlocal nopreserveindent
-setlocal nopreviewwindow
-setlocal quoteescape=\\
-setlocal noreadonly
-setlocal norelativenumber
-setlocal norightleft
-setlocal rightleftcmd=search
-setlocal noscrollbind
-setlocal shiftwidth=4
-setlocal noshortname
-setlocal nosmartindent
-setlocal softtabstop=4
-setlocal nospell
-setlocal spellcapcheck=[.?!]\\_[\\])'\"\	\ ]\\+
-setlocal spellfile=
-setlocal spelllang=en
-setlocal statusline=%!pyeval('powerline.statusline(6)')
-setlocal suffixesadd=
-setlocal noswapfile
-setlocal synmaxcol=300
-if &syntax != 'qf'
-setlocal syntax=qf
-endif
-setlocal tabstop=4
-setlocal tagcase=
-setlocal tags=
-setlocal textwidth=79
-setlocal thesaurus=
-setlocal undofile
-setlocal undolevels=-123456
-setlocal winfixheight
-setlocal nowinfixwidth
-set nowrap
-setlocal nowrap
-setlocal wrapmargin=0
-wincmd w
-exe '1resize ' . ((&lines * 33 + 34) / 68)
-exe '2resize ' . ((&lines * 27 + 34) / 68)
-exe '3resize ' . ((&lines * 3 + 34) / 68)
+exe '1resize ' . ((&lines * 32 + 34) / 68)
+exe '2resize ' . ((&lines * 32 + 34) / 68)
 tabedit recipe/templates/recipe/recipe-detail.html
 set splitbelow splitright
 wincmd _ | wincmd |
@@ -1083,6 +962,7 @@ setlocal fixendofline
 set foldcolumn=4
 setlocal foldcolumn=4
 setlocal foldenable
+set foldexpr=PythonFoldExpr(v:lnum)
 setlocal foldexpr=0
 setlocal foldignore=#
 set foldlevel=2
@@ -1093,6 +973,7 @@ setlocal foldmethod=marker
 setlocal foldminlines=1
 set foldnestmax=10
 setlocal foldnestmax=10
+set foldtext=PythonFoldText()
 setlocal foldtext=foldtext()
 setlocal formatexpr=
 setlocal formatoptions=cq
@@ -1154,14 +1035,15 @@ setlocal undofile
 setlocal undolevels=-123456
 setlocal nowinfixheight
 setlocal nowinfixwidth
+set nowrap
 setlocal wrap
 setlocal wrapmargin=0
-let s:l = 23 - ((22 * winheight(0) + 16) / 32)
+let s:l = 27 - ((15 * winheight(0) + 16) / 32)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-23
-normal! 045|
+27
+normal! 018|
 wincmd w
 argglobal
 edit templates/base.html
@@ -1305,6 +1187,7 @@ setlocal fixendofline
 set foldcolumn=4
 setlocal foldcolumn=4
 setlocal foldenable
+set foldexpr=PythonFoldExpr(v:lnum)
 setlocal foldexpr=0
 setlocal foldignore=#
 set foldlevel=2
@@ -1315,6 +1198,7 @@ setlocal foldmethod=marker
 setlocal foldminlines=1
 set foldnestmax=10
 setlocal foldnestmax=10
+set foldtext=PythonFoldText()
 setlocal foldtext=foldtext()
 setlocal formatexpr=
 setlocal formatoptions=cq
@@ -1360,7 +1244,7 @@ setlocal nospell
 setlocal spellcapcheck=[.?!]\\_[\\])'\"\	\ ]\\+
 setlocal spellfile=
 setlocal spelllang=en
-setlocal statusline=%!pyeval('powerline.statusline(7)')
+setlocal statusline=%!pyeval('powerline.statusline(2)')
 setlocal suffixesadd=
 setlocal swapfile
 setlocal synmaxcol=300
@@ -1376,17 +1260,236 @@ setlocal undofile
 setlocal undolevels=-123456
 setlocal nowinfixheight
 setlocal nowinfixwidth
+set nowrap
 setlocal wrap
 setlocal wrapmargin=0
-let s:l = 7 - ((6 * winheight(0) + 16) / 32)
+let s:l = 11 - ((10 * winheight(0) + 16) / 32)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-7
-normal! 0100|
+11
+normal! 076|
 wincmd w
 exe '1resize ' . ((&lines * 32 + 34) / 68)
 exe '2resize ' . ((&lines * 32 + 34) / 68)
+tabedit recipe/static/recipe/css/style.css
+set splitbelow splitright
+wincmd t
+set winheight=1 winwidth=1
+argglobal
+let s:cpo_save=&cpo
+set cpo&vim
+nmap <buffer> '[ <Plug>SIG_PrevLineByAlpha
+nmap <buffer> '] <Plug>SIG_NextLineByAlpha
+nmap <buffer> [- <Plug>SIG_PrevMarkerByType
+nmap <buffer> [` <Plug>SIG_PrevSpotByPos
+nmap <buffer> [' <Plug>SIG_PrevLineByPos
+nmap <buffer> ]- <Plug>SIG_NextMarkerByType
+nmap <buffer> ]` <Plug>SIG_NextSpotByPos
+nmap <buffer> ]' <Plug>SIG_NextLineByPos
+nmap <buffer> `[ <Plug>SIG_PrevSpotByAlpha
+nmap <buffer> `] <Plug>SIG_NextSpotByAlpha
+nmap <buffer> m<BS> <Plug>SIG_PurgeMarkers
+nmap <buffer> m  <Plug>SIG_PurgeMarks
+nmap <buffer> m, <Plug>SIG_PlaceNextMark
+nnoremap <buffer> <silent> m( :call signature#RemoveMarker("(")
+nnoremap <buffer> <silent> m9 :call signature#ToggleMarker("(")
+nnoremap <buffer> <silent> m* :call signature#RemoveMarker("*")
+nnoremap <buffer> <silent> m8 :call signature#ToggleMarker("*")
+nnoremap <buffer> <silent> m& :call signature#RemoveMarker("&")
+nnoremap <buffer> <silent> m7 :call signature#ToggleMarker("&")
+nnoremap <buffer> <silent> m^ :call signature#RemoveMarker("^")
+nnoremap <buffer> <silent> m6 :call signature#ToggleMarker("^")
+nnoremap <buffer> <silent> m% :call signature#RemoveMarker("%")
+nnoremap <buffer> <silent> m5 :call signature#ToggleMarker("%")
+nnoremap <buffer> <silent> m$ :call signature#RemoveMarker("$")
+nnoremap <buffer> <silent> m4 :call signature#ToggleMarker("$")
+nnoremap <buffer> <silent> m# :call signature#RemoveMarker("#")
+nnoremap <buffer> <silent> m3 :call signature#ToggleMarker("#")
+nnoremap <buffer> <silent> m@ :call signature#RemoveMarker("@")
+nnoremap <buffer> <silent> m2 :call signature#ToggleMarker("@")
+nnoremap <buffer> <silent> m! :call signature#RemoveMarker("!")
+nnoremap <buffer> <silent> m1 :call signature#ToggleMarker("!")
+nnoremap <buffer> <silent> m) :call signature#RemoveMarker(")")
+nnoremap <buffer> <silent> m0 :call signature#ToggleMarker(")")
+nnoremap <buffer> <silent> mZ :call signature#ToggleMark("Z")
+nnoremap <buffer> <silent> mY :call signature#ToggleMark("Y")
+nnoremap <buffer> <silent> mX :call signature#ToggleMark("X")
+nnoremap <buffer> <silent> mW :call signature#ToggleMark("W")
+nnoremap <buffer> <silent> mV :call signature#ToggleMark("V")
+nnoremap <buffer> <silent> mU :call signature#ToggleMark("U")
+nnoremap <buffer> <silent> mT :call signature#ToggleMark("T")
+nnoremap <buffer> <silent> mS :call signature#ToggleMark("S")
+nnoremap <buffer> <silent> mR :call signature#ToggleMark("R")
+nnoremap <buffer> <silent> mQ :call signature#ToggleMark("Q")
+nnoremap <buffer> <silent> mP :call signature#ToggleMark("P")
+nnoremap <buffer> <silent> mO :call signature#ToggleMark("O")
+nnoremap <buffer> <silent> mN :call signature#ToggleMark("N")
+nnoremap <buffer> <silent> mM :call signature#ToggleMark("M")
+nnoremap <buffer> <silent> mL :call signature#ToggleMark("L")
+nnoremap <buffer> <silent> mK :call signature#ToggleMark("K")
+nnoremap <buffer> <silent> mJ :call signature#ToggleMark("J")
+nnoremap <buffer> <silent> mI :call signature#ToggleMark("I")
+nnoremap <buffer> <silent> mH :call signature#ToggleMark("H")
+nnoremap <buffer> <silent> mG :call signature#ToggleMark("G")
+nnoremap <buffer> <silent> mF :call signature#ToggleMark("F")
+nnoremap <buffer> <silent> mE :call signature#ToggleMark("E")
+nnoremap <buffer> <silent> mD :call signature#ToggleMark("D")
+nnoremap <buffer> <silent> mC :call signature#ToggleMark("C")
+nnoremap <buffer> <silent> mB :call signature#ToggleMark("B")
+nnoremap <buffer> <silent> mA :call signature#ToggleMark("A")
+nnoremap <buffer> <silent> mz :call signature#ToggleMark("z")
+nnoremap <buffer> <silent> my :call signature#ToggleMark("y")
+nnoremap <buffer> <silent> mx :call signature#ToggleMark("x")
+nnoremap <buffer> <silent> mw :call signature#ToggleMark("w")
+nnoremap <buffer> <silent> mv :call signature#ToggleMark("v")
+nnoremap <buffer> <silent> mu :call signature#ToggleMark("u")
+nnoremap <buffer> <silent> mt :call signature#ToggleMark("t")
+nnoremap <buffer> <silent> ms :call signature#ToggleMark("s")
+nnoremap <buffer> <silent> mr :call signature#ToggleMark("r")
+nnoremap <buffer> <silent> mq :call signature#ToggleMark("q")
+nnoremap <buffer> <silent> mp :call signature#ToggleMark("p")
+nnoremap <buffer> <silent> mo :call signature#ToggleMark("o")
+nnoremap <buffer> <silent> mn :call signature#ToggleMark("n")
+nnoremap <buffer> <silent> mm :call signature#ToggleMark("m")
+nnoremap <buffer> <silent> ml :call signature#ToggleMark("l")
+nnoremap <buffer> <silent> mk :call signature#ToggleMark("k")
+nnoremap <buffer> <silent> mj :call signature#ToggleMark("j")
+nnoremap <buffer> <silent> mi :call signature#ToggleMark("i")
+nnoremap <buffer> <silent> mh :call signature#ToggleMark("h")
+nnoremap <buffer> <silent> mg :call signature#ToggleMark("g")
+nnoremap <buffer> <silent> mf :call signature#ToggleMark("f")
+nnoremap <buffer> <silent> me :call signature#ToggleMark("e")
+nnoremap <buffer> <silent> md :call signature#ToggleMark("d")
+nnoremap <buffer> <silent> mc :call signature#ToggleMark("c")
+nnoremap <buffer> <silent> mb :call signature#ToggleMark("b")
+nnoremap <buffer> <silent> ma :call signature#ToggleMark("a")
+let &cpo=s:cpo_save
+unlet s:cpo_save
+setlocal keymap=
+setlocal noarabic
+setlocal autoindent
+setlocal backupcopy=
+setlocal balloonexpr=
+setlocal nobinary
+setlocal nobreakindent
+setlocal breakindentopt=
+setlocal bufhidden=
+setlocal buflisted
+setlocal buftype=
+setlocal cindent
+setlocal cinkeys=0{,0},0),:,0#,!^F,o,O,e
+setlocal cinoptions=
+setlocal cinwords=if,else,while,do,for,switch
+set colorcolumn=+1
+setlocal colorcolumn=+1
+setlocal comments=s1:/*,mb:*,ex:*/
+setlocal commentstring=/*%s*/
+setlocal complete=.,w,b,u,t,i
+setlocal concealcursor=
+setlocal conceallevel=0
+setlocal completefunc=
+setlocal nocopyindent
+setlocal cryptmethod=
+setlocal nocursorbind
+setlocal nocursorcolumn
+set cursorline
+setlocal cursorline
+setlocal define=
+setlocal dictionary=
+setlocal nodiff
+setlocal equalprg=
+setlocal errorformat=
+setlocal expandtab
+if &filetype != 'css'
+setlocal filetype=css
+endif
+setlocal fixendofline
+set foldcolumn=4
+setlocal foldcolumn=4
+setlocal foldenable
+set foldexpr=PythonFoldExpr(v:lnum)
+setlocal foldexpr=PythonFoldExpr(v:lnum)
+setlocal foldignore=#
+set foldlevel=2
+setlocal foldlevel=0
+setlocal foldmarker={{{,}}}
+set foldmethod=marker
+setlocal foldmethod=marker
+setlocal foldminlines=1
+set foldnestmax=10
+setlocal foldnestmax=10
+set foldtext=PythonFoldText()
+setlocal foldtext=PythonFoldText()
+setlocal formatexpr=
+setlocal formatoptions=croql
+setlocal formatlistpat=^\\s*\\d\\+[\\]:.)}\\t\ ]\\s*
+setlocal grepprg=
+setlocal iminsert=2
+setlocal imsearch=2
+setlocal include=^\\s*@import\\s\\+\\%(url(\\)\\=
+setlocal includeexpr=
+setlocal indentexpr=GetCSSIndent()
+setlocal indentkeys=0{,0},!^F,o,O
+setlocal noinfercase
+setlocal iskeyword=@,48-57,_,192-255
+setlocal keywordprg=
+setlocal nolinebreak
+setlocal nolisp
+setlocal lispwords=
+set list
+setlocal list
+setlocal makeprg=
+setlocal matchpairs=(:),{:},[:]
+setlocal modeline
+setlocal modifiable
+setlocal nrformats=bin,octal,hex
+set number
+setlocal number
+setlocal numberwidth=4
+setlocal omnifunc=csscomplete#CompleteCSS
+setlocal path=
+setlocal nopreserveindent
+setlocal nopreviewwindow
+setlocal quoteescape=\\
+setlocal noreadonly
+setlocal norelativenumber
+setlocal norightleft
+setlocal rightleftcmd=search
+setlocal noscrollbind
+setlocal shiftwidth=4
+setlocal noshortname
+setlocal nosmartindent
+setlocal softtabstop=4
+setlocal nospell
+setlocal spellcapcheck=[.?!]\\_[\\])'\"\	\ ]\\+
+setlocal spellfile=
+setlocal spelllang=en
+setlocal statusline=%!pyeval('powerline.statusline(9)')
+setlocal suffixesadd=
+setlocal swapfile
+setlocal synmaxcol=300
+if &syntax != 'css'
+setlocal syntax=css
+endif
+setlocal tabstop=4
+setlocal tagcase=
+setlocal tags=
+setlocal textwidth=79
+setlocal thesaurus=
+setlocal undofile
+setlocal undolevels=-123456
+setlocal nowinfixheight
+setlocal nowinfixwidth
+set nowrap
+setlocal nowrap
+setlocal wrapmargin=0
+let s:l = 1 - ((0 * winheight(0) + 32) / 65)
+if s:l < 1 | let s:l = 1 | endif
+exe s:l
+normal! zt
+1
+normal! 0
 tabedit recipe/models.py
 set splitbelow splitright
 wincmd _ | wincmd |
@@ -1630,7 +1733,7 @@ setlocal nospell
 setlocal spellcapcheck=[.?!]\\_[\\])'\"\	\ ]\\+
 setlocal spellfile=
 setlocal spelllang=en
-setlocal statusline=%!pyeval('powerline.statusline(2)')
+setlocal statusline=%!pyeval('powerline.statusline(6)')
 setlocal suffixesadd=
 setlocal swapfile
 setlocal synmaxcol=300
@@ -1655,12 +1758,12 @@ normal! zo
 normal! zo
 136
 normal! zo
-let s:l = 147 - ((29 * winheight(0) + 16) / 32)
+let s:l = 85 - ((21 * winheight(0) + 16) / 32)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-147
-normal! 0
+85
+normal! 024|
 wincmd w
 argglobal
 edit recipe/admin.py
@@ -1896,7 +1999,7 @@ setlocal nospell
 setlocal spellcapcheck=[.?!]\\_[\\])'\"\	\ ]\\+
 setlocal spellfile=
 setlocal spelllang=en
-setlocal statusline=%!pyeval('powerline.statusline(11)')
+setlocal statusline=%!pyeval('powerline.statusline(7)')
 setlocal suffixesadd=
 setlocal swapfile
 setlocal synmaxcol=300
@@ -1915,12 +2018,12 @@ setlocal nowinfixwidth
 set nowrap
 setlocal nowrap
 setlocal wrapmargin=0
-let s:l = 67 - ((25 * winheight(0) + 16) / 32)
+let s:l = 75 - ((30 * winheight(0) + 16) / 32)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-67
-normal! 058|
+75
+normal! 041|
 wincmd w
 exe '1resize ' . ((&lines * 32 + 34) / 68)
 exe '2resize ' . ((&lines * 32 + 34) / 68)
@@ -2185,8 +2288,8 @@ if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
 18
-normal! 041|
-tabnext 2
+normal! 0
+tabnext 3
 set stal=1
 if exists('s:wipebuf')
   silent exe 'bwipe ' . s:wipebuf
