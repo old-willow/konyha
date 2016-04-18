@@ -41,7 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.admin',
     'django_colorbox',
     'tinymce',
-#    'mce_filebrowser',
+    #'mce_filebrowser',
     'recipe',
 ]
 
@@ -127,11 +127,15 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.9/howto/static-files/
 
-STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 STATIC_URL = '/static/'
-STATICFEILES_DIRS = [
-    ('static', BASE_DIR),
-]
+
+if not DEBUG:
+    STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+elif DEBUG:
+    STATICFILES_DIRS = (
+        os.path.join(BASE_DIR, 'static'),
+        os.path.join(BASE_DIR, 'static/bootstrap-3.3.6-dist'),
+    )
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
