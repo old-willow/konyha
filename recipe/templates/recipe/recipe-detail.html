@@ -2,6 +2,10 @@
 {% load staticfiles %}
 {% load fb_versions %}
 
+{% block title %}
+Listing Recipes
+{% endblock %}
+
 {% block recipe-detail %}
 
 <h2>{{ recipe.title }}</h2>
@@ -21,7 +25,7 @@
 {{ recipe.description|safe }}
 
 <!-- <strong>Image:</strong> -->
-<div class="image-thumbs ">
+<div class="image-thumbs clearfix">
 <ul class="list-unstyled">
 {% for image in recipe.recipeimage_set.all %}
 <li class="go-left">
@@ -31,7 +35,7 @@
 </ul>
 </div>
 
-<div class="clear">
+<div>
 <a class="btn btn-lg" href="{% url 'recipe:list' %}">Return to recipe list</a>
 </div>
 
