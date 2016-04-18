@@ -15,8 +15,6 @@ def recipe_list(request):
 
 def recipe_detail(request, slug):
     recipe = Recipe.objects.get(slug=slug)
-    for i in recipe.recipeimage_set.all():
-        print i
 
     context = {
         'recipe': recipe,
