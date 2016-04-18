@@ -2,15 +2,27 @@
 {% load staticfiles %}
 
 {% block recipe-detail %}
+
 <h2>{{ recipe.title }}</h2>
-<br />
+
+<h3><strong>Ingredients:</strong></h3>
+<ul>
+{% for ingredient in recipe.ingredient.all %}
+<li>
+<strong>{{ ingredient.ingredient.name }}:</strong>
+{{ ingredient.quantity }}
+{{ ingredient.get_unit_display }}
+</li>
+{% endfor %}
+</ul>
+
 <!-- <strong>Description: </strong> -->
 {{ recipe.description|safe }}
 
 <!-- <strong>Image:</strong> -->
-<ul>
+<ul class="list-unstyled">
 {% for image in recipe.recipeimage_set.all %}
-<li>
+<li class="pull-left">
 <a class="gallery" href="{{ image.image.url }}"><img src="{{ image.image.url }}" alt="{{ image.image.title }}"width="220" /></a>
 </li>
 {% endfor %}
