@@ -31,12 +31,17 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-    'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'grappelli',
+    'filebrowser',
+    'django.contrib.admin',
+    'django_colorbox',
+    'tinymce',
+#    'mce_filebrowser',
     'recipe',
 ]
 
@@ -122,7 +127,55 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.9/howto/static-files/
 
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 STATIC_URL = '/static/'
+STATICFEILES_DIRS = [
+    ('static', BASE_DIR),
+]
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
-print MEDIA_ROOT
+
+#Filebrowser settings.
+from django.conf import settings
+FILEBROWSER_DIRECTORY = getattr(settings, 'FILEBROWSER_DIRECTORY', 'images/recipes/')
+#FILEBROWSER_EXTENSIONS = getattr(settings, 'FILEBROWER_EXTENSIONS', {
+#    'Image': ['.jpg', '.jpeg', '.gif', '.png', '.tif', ]
+#})
+#SELECT_FORMATS = getattr(settings, "FILEBROWSER_SELECT_FORMATS", {
+#    'file': ['Image'],
+#    'image': ['Image'],
+#})
+
+TINYMCE_DEFAULT_CONFIG = {
+    'plugins': "table,spellchecker,paste,searchreplace",
+    'height': 500,
+    'width': 800,
+    'theme': "advanced",
+    'cleanup_on_startup': True,
+    'custom_undo_redo_levels': 10,
+}
+# Tinymce settings.
+#TINYMCE_JS_URL = 'http://127.0.0.1:8000/tiny_mce/tiny_mce_src.js'
+#TINYMCE_JS_ROOT = os.path.join(MEDIA_URL, '/home/robi/venv/py2_django_19_4_midearth.eld/lib/python2.7/site-packages/tinymce/media/')
+#TINYMCE_DEFAULT_CONFIG = {'selector': 'textarea',
+#                          'height': 500,
+#                          'width': 800,
+#                          'theme': 'advanced',
+#                          'cleanup_on_startup': True,
+#                          'custom_undo_redo_levels': 10,
+#                          'plugins': "image",
+#                          'file_browser_callback': 'filebrowser',
+#                          'file_browser_callback': 'mce_filebrowser',
+#                          'plugins':  [
+#                              'advlist autolink lists link image charmap print preview anchor',
+#                              'searchreplace visualblocks code fullscreen',
+#                              'insertdatetime media table contextmenu paste code',
+#                              'emoticons template paste textcolor colorpicker textpattern imagetools'
+#                          ],
+#                          'toolbar1': 'insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image',
+#                          'toolbar2': 'print preview media | forecolor backcolor emoticons',
+#                          'image_advtab': True,
+#                          }
+#TINYMCE_SPELLCHECKER = True
+#TINYMCE_COMPRESSOR = True
+#TINYMCE_FILEBROWSER = True  # Add 'filebrowser' to INSTALLED_APPS
