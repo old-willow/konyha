@@ -158,6 +158,15 @@ TINYMCE_DEFAULT_CONFIG = {
     'cleanup_on_startup': True,
     'custom_undo_redo_levels': 10,
 }
+
+FILEBROWSER_VERSIONS = getattr(settings, "FILEBROWSER_VERSIONS", {
+    'admin_thumbnail': {'verbose_name': 'Admin Thumbnail', 'width': 60, 'height': 60, 'opts': 'crop'},
+    'thumbnail': {'verbose_name': 'Thumbnail (2 col)', 'width': 180, 'height': 100, 'opts': 'crop'},
+    'small': {'verbose_name': 'Small (2 col)', 'width': 140, 'height': '', 'opts': ''},
+    'medium': {'verbose_name': 'Medium (4col )', 'width': 300, 'height': '', 'opts': ''},
+    'big': {'verbose_name': 'Big (6 col)', 'width': 460, 'height': '', 'opts': ''},
+    'large': {'verbose_name': 'Large (8 col)', 'width': 680, 'height': '', 'opts': ''},
+})
 # Tinymce settings.
 #TINYMCE_JS_URL = 'http://127.0.0.1:8000/tiny_mce/tiny_mce_src.js'
 #TINYMCE_JS_ROOT = os.path.join(MEDIA_URL, '/home/robi/venv/py2_django_19_4_midearth.eld/lib/python2.7/site-packages/tinymce/media/')

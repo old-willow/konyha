@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% load staticfiles %}
+{% load fb_versions %}
 
 {% block recipe-detail %}
 
@@ -23,7 +24,7 @@
 <ul class="list-unstyled">
 {% for image in recipe.recipeimage_set.all %}
 <li class="pull-left">
-<a class="gallery" href="{{ image.image.url }}"><img src="{{ image.image.url }}" alt="{{ image.image.title }}"width="220" /></a>
+<a class="gallery" href="{{ image.image.url }}"><img src="{% version image.image 'thumbnail' %}" alt="{{ image.image.title }}" title="{{ image.image.title }}"/></a>
 </li>
 {% endfor %}
 </ul>
