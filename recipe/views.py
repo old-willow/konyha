@@ -1,10 +1,16 @@
 from django.shortcuts import render
 
-from .models import Recipe
+from .models import Recipe, Carousel
 
 
 def home(request):
-    context = {}
+    images = Carousel.objects.filter(active=True)
+    first_image = images[0]
+
+    context = {
+        'images': images,
+        'first_image': first_image,
+    }
 
     return render(request, 'recipe/home.html', context)
 
@@ -27,3 +33,13 @@ def recipe_detail(request, slug):
     }
 
     return render(request, 'recipe/recipe-detail.html', context)
+
+
+def carousel(request):
+    images = Carousel.objects.filter(active=True)
+
+    context = {'images': images}
+
+    return render(request,
+                  'recipe/carousel.html',
+                  context)

@@ -5,7 +5,9 @@ from django.forms import ClearableFileInput
 
 #from mce_filebrowser.admin import MCEFilebrowserAdmin
 
-from .models import RecipeAuthor, RecipeImage, RecipeIngredient, Recipe, Ingrediant  # , Unit
+from .models import (RecipeAuthor, RecipeImage,
+                     RecipeIngredient, Recipe, Ingrediant,
+                     Carousel)
 #from .forms import RecipeIngredientFormset
 
 
@@ -72,5 +74,6 @@ admin.site.register(RecipeImage)
 admin.site.register(Ingrediant)
 admin.site.register(RecipeIngredient, RecipeIngredientAdmin)
 admin.site.register(Recipe, RecipeAdmin)
+admin.site.register(Carousel)
 #admin.site.register(Recipe, RecipeAdmin)
 #admin.site.register(Unit)

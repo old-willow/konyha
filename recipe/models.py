@@ -147,3 +147,15 @@ class RecipeImage(models.Model):
 
     def get_absolute_url(self):
         return "/images/recipes/%s" % (self.image, )
+
+
+class Carousel(models.Model):
+    title = models.CharField(max_length=100)
+    active = models.BooleanField()
+    image = FileBrowseField(_('Image'),
+                            max_length=200,
+                            directory='images/carousel/',
+                            extensions=['.jpg'])
+
+    def __unicode__(self):
+        return self.title
