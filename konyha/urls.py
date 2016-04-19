@@ -17,6 +17,7 @@ from django.conf.urls import url, include
 from django.conf.urls.static import static
 from django.contrib import admin
 from django.conf import settings
+from django.contrib import flatpages
 #from django import views
 
 from filebrowser.sites import site
@@ -33,6 +34,7 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^recipes/', include('recipe.urls', namespace='recipe')),
     url(r'^accounts/', include('registration.backends.simple.urls')),
+    url(r'^about/$', flatpages.views.flatpage, {'url': '/about/'}, name='about'),
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
