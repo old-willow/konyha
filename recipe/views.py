@@ -5,11 +5,9 @@ from .models import Recipe, Carousel
 
 def home(request):
     images = Carousel.objects.filter(active=True)
-    first_image = images[0]
 
     context = {
         'images': images,
-        'first_image': first_image,
     }
 
     return render(request, 'recipe/home.html', context)
