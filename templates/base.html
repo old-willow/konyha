@@ -17,7 +17,6 @@
     <script type="text/javascript" src="{% static 'django_colorbox/js/jquery.colorbox-min.js' %}"></script>
     <script type="text/javascript" src="{% static 'js/bootstrap.min.js' %}"></script>
 
-    <tile></title>
     </head>
 
     <body>
@@ -61,7 +60,9 @@
     </div> <!-- /.container -->
     </header>
 
-    {% include "carousel.html" %}
+    {% if request.path == '/' %}
+        {% include "carousel.html" %}
+    {% endif %}
 
 <!-- </nav> -->
 <!--     <div class="container"> -->
@@ -90,7 +91,8 @@
             {% block sidebar %}{% endblock %}
             </div>
         </div>
-    </div>
+
+    <!--</div>  container-fluid -->
 
     <div class="footer">
     </div>
