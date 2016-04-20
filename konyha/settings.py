@@ -25,7 +25,7 @@ SECRET_KEY = 'q=2s^luwp1tdozpo+%+gb_+*aj2nw%i@w9t8-4#say3)b@+fi@'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['konyha.eld', ]
 
 
 # Application definition

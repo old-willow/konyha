@@ -5,6 +5,14 @@
 Welcom to Cooking Collection Page
 {% endblock %}
 
+{% block content %}
+<ul>
+{% for recipe in recipes %}
+<li><a href="{% url 'recipe:detail' recipe.slug %}">{{ recipe.title }}</a></li>
+{% endfor %}
+</ul>
+{% endblock %}
+
 {% block home %}
 
 {% endblock %}

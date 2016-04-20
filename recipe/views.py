@@ -10,8 +10,11 @@ from registration.forms import RegistrationForm
 def home(request):
     images = Carousel.objects.filter(active=True)
 
+    recipes = Recipe.objects.all()[:3]
+
     context = {
         'images': images,
+        'recipes': recipes,
     }
 
     return render(request, 'recipe/home.html', context)
