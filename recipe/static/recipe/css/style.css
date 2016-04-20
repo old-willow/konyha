@@ -13,3 +13,7 @@ div.clear {
 .carousel-inner > .item > img {
     margin: 0 auto;
 }
+
+.loggedin {
+    color: #c36de0;
+}

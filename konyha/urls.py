@@ -35,9 +35,11 @@ urlpatterns = [
     url(r'^grappelli/', include('grappelli.urls')),
     url(r'^tinymce/', include('tinymce.urls')),
     #url(r'^media/(?P<path>.*)$', views.static.serve, {'document_root': settings.MEDIA_ROOT}),
+
     url(r'^admin/', admin.site.urls),
+    url(r'^admin/', admin.site.urls),
+
     url(r'^recipes/', include('recipe.urls', namespace='recipe')),
-    url(r'^accounts/', include('registration.backends.simple.urls')),
     url(r'^about/$', flatpages.views.flatpage, {'url': '/about/'}, name='about'),
 ]
 

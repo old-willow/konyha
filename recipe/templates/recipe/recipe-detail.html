@@ -10,6 +10,10 @@ Listing Recipes
 
 <h2>{{ recipe.title }}</h2>
 
+{% if user.is_authenticated and user.is_active %}
+<a class="btn btn-lg btn-primary" href="{% url 'admin:recipe_recipe_change' recipe.pk %}" target="_blank">Edit</a>
+{% endif %}
+
 <h3><strong>Ingredients:</strong></h3>
 <ul>
 {% for ingredient in recipe.ingredient.all %}
