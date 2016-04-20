@@ -47,7 +47,14 @@ def carousel(request):
                   context)
 
 
+def login(request):
+    pass
+
+
 class Registration(RegistrationView):
+    """
+    This is currently only for test purposes.
+    """
     form_class = RegistrationForm
     template_name = 'registration/registration_form.html'
 

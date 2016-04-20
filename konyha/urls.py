@@ -28,6 +28,8 @@ from recipe import views as recipe_views
 urlpatterns = [
     url(r'^$', recipe_views.home),
     #url(r'^accounts/register/$', recipe_views.Registration.as_view()),  # test purpose
+    url(r'^accounst/login/$', 'django.contrib.auth.views.login'),
+    url(r'^accounst/logout/$', 'django.contrib.auth.views.logout'),
     url(r'^accounts/', include('registration.backends.simple.urls')),
     url(r'^admin/filebrowser/', site.urls),
     url(r'^grappelli/', include('grappelli.urls')),
