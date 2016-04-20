@@ -22,11 +22,13 @@ from django.contrib import flatpages
 
 from filebrowser.sites import site
 
-from recipe import views
+from recipe import views as recipe_views
 
 
 urlpatterns = [
-    url(r'^$', views.home),
+    url(r'^$', recipe_views.home),
+    #url(r'^accounts/register/$', recipe_views.Registration.as_view()),  # test purpose
+    url(r'^accounts/', include('registration.backends.simple.urls')),
     url(r'^admin/filebrowser/', site.urls),
     url(r'^grappelli/', include('grappelli.urls')),
     url(r'^tinymce/', include('tinymce.urls')),

@@ -1,6 +1,10 @@
 from django.shortcuts import render
+from django.http import HttpResponseRedirect
 
 from .models import Recipe, Carousel
+
+from registration.views import RegistrationView
+from registration.forms import RegistrationForm
 
 
 def home(request):
@@ -41,3 +45,28 @@ def carousel(request):
     return render(request,
                   'recipe/carousel.html',
                   context)
+
+
+class Registration(RegistrationView):
+    form_class = RegistrationForm
+    template_name = 'registration/registration_form.html'
+
+    def get(self, request, *args, **kwargs):
+        form = self.form_class()
+        print("This is an empty form.")
+        return render(request, self.template_name, {'form': form})
+
+    def post(self, request, *args, **kwargs):
+        form = self.form_class(request.POST)
+        print("This is a bound form.")
+        if form.is_valid():
+            form.save()
+            print("Form has been saved!")
+
+            return HttpResponseRedirect('/')
+
+        return render(request, self.template_name, {'form': form})
+
+#    def register(self, form):
+#        if request.user.is_authenticated():
+#            return HttpresponseRedirect('/')

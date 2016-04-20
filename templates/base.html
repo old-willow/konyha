@@ -42,6 +42,8 @@
             <!-- <li class="active"><a href="#">Link <span class="sr-only">(current)</span></a></li> -->
             <li class="active"><a href="{% url 'recipe:list' %}">Recipes</a></li>
             <li><a href="{% url 'about' %}">About</a></li>
+            <li><a href="#">Login</a></li>
+            <li><a href="/accounts/register/">Register</a></li>
             <!-- <li class="dropdown"> -->
             <!-- <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a> -->
             <!-- <ul class="dropdown-menu"> -->
@@ -82,6 +84,7 @@
 
         <div class="container">
             <div class="content">
+            {% block register %}{% endblock %}
             {% block about %}{% endblock %}
             {% block home %}{% endblock %}
             {% block content %}
