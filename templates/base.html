@@ -23,7 +23,9 @@
 
     <header class="navbar-inverse" role="banner">
     <div class="container">
+
     <nav class="navbar navbar-inverse">
+
     <div class="container-fluid">
         <!-- Brand and toggle get grouped for better mobile display -->
         <div class="navbar-header">
@@ -66,13 +68,13 @@
         </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->
     </div> <!-- /.container -->
+    </nav>
     </header>
 
     {% if request.path == '/' %}
         {% include "carousel.html" %}
     {% endif %}
 
-<!-- </nav> -->
 <!--     <div class="container"> -->
 <!--         <div class="containr"> -->
 <!--             <div class="header"> -->
@@ -90,21 +92,22 @@
 
         <div class="container">
             <div class="content">
+            {% block content %}
             {% block register %}{% endblock %}
             {% block about %}{% endblock %}
             {% block home %}{% endblock %}
-            {% block content %}
-            {% block recipe-detail %}
-            {% endblock %}
+            {% block recipe-detail %}{% endblock %}
             {% endblock %}
             {% block sidebar %}{% endblock %}
             </div>
         </div>
 
-    <!--</div>  container-fluid -->
+    </div><!--  container-fluid -->
 
-    <div class="footer">
-    </div>
-
+    <footer class="footer">
+        <div class="container text-center" style="background-color: #222222;">
+            <p class="text-muted credit">Copyright &copy; 2016</p>
+        </div>
+    </footer>
     </body>
 </html>

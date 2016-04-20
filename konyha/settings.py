@@ -168,7 +168,7 @@ FILEBROWSER_VERSIONS = getattr(settings, "FILEBROWSER_VERSIONS", {
     'admin_thumbnail': {'verbose_name': 'Admin Thumbnail', 'width': 60, 'height': 60, 'opts': 'crop'},
     'thumbnail': {'verbose_name': 'Thumbnail (2 col)', 'width': 180, 'height': 100, 'opts': 'crop'},
     'small': {'verbose_name': 'Small (2 col)', 'width': 140, 'height': '', 'opts': ''},
-    'medium': {'verbose_name': 'Medium (4col )', 'width': 300, 'height': '', 'opts': ''},
+    'medium': {'verbose_name': 'Medium (4col )', 'width': 300, 'height': '166', 'opts': 'crop'},
     'big': {'verbose_name': 'Big (6 col)', 'width': 460, 'height': '', 'opts': ''},
     'large': {'verbose_name': 'Large (8 col)', 'width': 680, 'height': '', 'opts': ''},
 })

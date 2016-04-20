@@ -33,7 +33,7 @@ Listing Recipes
 <ul class="list-unstyled">
 {% for image in recipe.recipeimage_set.all %}
 <li class="go-left">
-<a class="gallery" href="{{ image.image.url }}"><img src="{% version image.image 'thumbnail' %}" alt="{{ image.image.title }}" title="{{ image.image.title }}"/></a>
+<a class="gallery thumbnail" href="{{ image.image.url }}"><img src="{% version image.image 'thumbnail' %}" alt="{{ image.image.title }}" title="{{ image.image.title }}"/></a>
 </li>
 {% endfor %}
 </ul>

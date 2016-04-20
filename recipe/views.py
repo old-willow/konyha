@@ -11,10 +11,12 @@ def home(request):
     images = Carousel.objects.filter(active=True)
 
     recipes = Recipe.objects.all()[:3]
+    #rec_lead_img = recipes.recipeimage_set.get(pk=1)
 
     context = {
         'images': images,
         'recipes': recipes,
+        #'rec_lead_img': rec_lead_img,
     }
 
     return render(request, 'recipe/home.html', context)

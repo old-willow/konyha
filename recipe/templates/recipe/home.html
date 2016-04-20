@@ -1,18 +1,34 @@
 {% extends "base.html" %}
 {% load staticfiles %}
+{% load fb_versions %}
+
 
 {% block title %}
 Welcom to Cooking Collection Page
 {% endblock %}
 
+
 {% block content %}
-<ul>
+<div class="container">
+<div class="row">
 {% for recipe in recipes %}
-<li><a href="{% url 'recipe:detail' recipe.slug %}">{{ recipe.title }}</a></li>
+<div class="col-xs-4">
+    <div class="thumbnail">
+        {% with recipe.recipeimage_set.all.0 as image %}
+        {# src="{{ image.image.url }} #}
+        <img class="gallery thumbnail" src="{% version image.image 'medium' %}" alt="{{ image.title }}" >
+        {% endwith %}
+        <div class="caption">
+            <h3>{{ recipe.title }}</h3>
+            <p><a class="btn btn-primary" role="button" href="{% url 'recipe:detail' recipe.slug %}">Detail</a></p>
+        </div>
+    </div> <!-- div thumbnail-->
+</div>
 {% endfor %}
-</ul>
+</div> <!-- div row -->
+</div> <!-- div container -->
 {% endblock %}
 
-{% block home %}
 
+{% block home %}
 {% endblock %}
