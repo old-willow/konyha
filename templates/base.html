@@ -42,18 +42,20 @@
             <!-- <li class="active"><a href="#">Link <span class="sr-only">(current)</span></a></li> -->
             <li class="active"><a href="{% url 'recipe:list' %}">Recipes</a></li>
             <li><a href="{% url 'about' %}">About</a></li>
+            <!-- {% if user.is_authenticated %} -->
+            <!-- <li><a class="pull-right" href="/accounts/logout/">Logout</a>You are logged in as: {{ user.username }}</li> -->
+            <!-- {% else %} -->
+            <!-- <li><a class="pull-right" href="/accounts/login/">Login</a></li> -->
+            <!-- {% endif %} -->
+            <!-- <li><a class="pull-right" href="/accounts/register/">Register</a></li> -->
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
             {% if user.is_authenticated %}
-            <li><a href="/accounts/logout/">Logout</a>You are logged in as: {{ user.username }}</li>
+            <li><a class="pull-right" href="/accounts/logout/">Logout</a><span class="loggedin">You are logged in as: {{ user.username }}</span></li>
             {% else %}
-            <li><a href="/accounts/login/">Login</a></li>
+            <li><a class="pull-right" href="/accounts/login/">Login</a></li>
             {% endif %}
-            <li><a href="/accounts/register/">Register</a></li>
-            <!-- <li class="dropdown"> -->
-            <!-- <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a> -->
-            <!-- <ul class="dropdown-menu"> -->
-            <!--     <li class="active"><a href="{% url 'recipe:list' %}">Recipes</a></li> -->
-            <!-- </ul> -->
-            <!-- </li> -->
+            <li><a class="pull-right" href="/accounts/register/">Register</a></li>
         </ul>
         <!-- <form class="navbar-form navbar-left" role="search"> -->
         <!--     <div class="form-group"> -->
