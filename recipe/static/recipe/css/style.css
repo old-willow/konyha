@@ -17,3 +17,12 @@ div.clear {
 .loggedin {
     color: #c36de0;
 }
+
+.fixed-height {
+    height: 360px;
+}
+
+.to-bottom {
+    position: absolute;
+    bottom: 20px;
+}
