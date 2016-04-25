@@ -2,7 +2,7 @@ from __future__ import unicode_literals
 
 from django.db import models
 from django.contrib.auth.models import User
-from django.utils.translation import ugettext as _
+from django.utils.translation import ugettext_lazy as _
 
 from django.utils.html import mark_safe
 
@@ -11,18 +11,18 @@ from filebrowser.fields import FileBrowseField
 
 
 class RecipeAuthor(models.Model):
-    user = models.ForeignKey(User, help_text="Please provide chef",
+    user = models.ForeignKey(User, help_text=_("Please provide chef"),
                              on_delete=models.CASCADE)
     image = models.ImageField(upload_to='images/chefs/',
                               max_length=255,
                               blank=True, null=True,
-                              help_text="You have to add chef photo.")
+                              help_text=_("You have to add chef photo."))
 
     def image_preview(self):
         img = '<img src="/media/%s" width="120" height="120" />' % (self.image, )
 
         return mark_safe(img)
-    image_preview.short_description = 'Image preview'
+    image_preview.short_description = _('Image preview')
 
     def __unicode__(self):
         return self.user.username
@@ -50,16 +50,16 @@ class RecipeAuthor(models.Model):
 
 class Ingrediant(models.Model):
     SPICES = (
-        ('0', _('Neutral')),
-        ('solt', _('Solt')),
-        ('sugar', _('Sugar')),
+        ('neutral', _('Neutral')),
+        ('solty', _('Solty')),
+        ('sweet', _('Sweet')),
         ('bitter', _('Bitter')),
         ('acid', _('Acid')),
     )
 
     name = models.CharField(max_length=100)
     #recipe = models.ManyToManyField(Recipe)
-    spice_type = models.CharField(max_length=30, choices=SPICES, default='0')
+    spice_type = models.CharField(max_length=30, choices=SPICES, default='neutral')
     #unit = models.CharField(max_length=15, choices=MEASURING_UNITS, default='0')
 
     def __unicode__(self):
@@ -68,14 +68,14 @@ class Ingrediant(models.Model):
 
 class RecipeIngredient(models.Model):
     MEASURING_UNITS = (
-        ('0', 'Choose measure unit...'),
+        ('0', _('Choose measure unit...')),
         ('gramm', 'g'),
         ('dekagramm', 'dkg'),
         ('kilogramm', 'kg'),
-        ('tea_spun', 'Tea spun'),
-        ('table_spun', 'Table spun'),
-        ('quantity', 'Quantity'),
-        ('piece', 'Piece'),
+        ('tea_spun', _('Tea spun')),
+        ('table_spun', _('Table spun')),
+        ('quantity', _('Quantity')),
+        ('piece', _('Piece')),
     )
     ingredient = models.ForeignKey(Ingrediant, on_delete=models.CASCADE)
     quantity = models.CharField(max_length=15)
@@ -86,9 +86,9 @@ class RecipeIngredient(models.Model):
         return self.ingredient.name + ': ' + self.quantity + ' ' + self.unit
 
     class Meta:
-        ordering = ['ingredient', ]
-        verbose_name = 'included ingredient'
-        verbose_name = 'included ingredients'
+        ordering = [_('ingredient'), ]
+        verbose_name = _('included ingredient')
+        verbose_name = _('included ingredients')
 
 
 class Recipe(models.Model):
@@ -146,7 +146,7 @@ class RecipeImage(models.Model):
         return self.title
 
     def get_absolute_url(self):
-        return "/images/recipes/%s" % (self.image, )
+        return '/images/recipes/%s' % (self.image, )
 
 
 class Carousel(models.Model):

@@ -1,0 +1,99 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-04-25 10:25+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: konyha/settings.py:136
+msgid "Hungarian"
+msgstr "Mađarski"
+
+#: konyha/settings.py:137
+msgid "Serbian"
+msgstr "Srpski"
+
+#: konyha/settings.py:138
+msgid "English"
+msgstr "Engleski"
+
+#: konyha/urls.py:54
+msgid "^accounts/logout/$"
+msgstr "^korisnici/odjava/$"
+
+#: konyha/urls.py:55
+msgid "^accounts/"
+msgstr "^korisnici/"
+
+#: konyha/urls.py:56
+msgid "^recipes/"
+msgstr "^recepti/"
+
+#: konyha/urls.py:57
+msgid "^about/$"
+msgstr "^o-nama/$"
+
+#: templates/admin/recipe/change_form.html:17
+msgid "Home"
+msgstr "Početna"
+
+#: templates/admin/recipe/change_form.html:20
+msgid "Add"
+msgstr "Dodaj"
+
+#: templates/admin/recipe/change_form.html:32
+msgid "History"
+msgstr "Istorija"
+
+#: templates/admin/recipe/change_form.html:34
+msgid "View on site"
+msgstr "Pogledaj na sajtu"
+
+#: templates/admin/recipe/change_form.html:46
+msgid "Please correct the error below."
+msgstr "Molim Vas ispravite grešku ispod."
+
+#: templates/admin/recipe/change_form.html:46
+msgid "Please correct the errors below."
+msgstr "Molim Vas ispravite greške ispod."
+
+#: templates/base.html:70
+msgid "Recipes"
+msgstr "Recepti"
+
+#: templates/base.html:71
+msgid "About"
+msgstr "O nama"
+
+#: templates/base.html:81
+msgid "Logout"
+msgstr "Odjava"
+
+#: templates/base.html:81
+msgid "You are logged in as:"
+msgstr "Prijavljeni ste kao:"
+
+#: templates/base.html:83
+msgid "Login"
+msgstr "Prijava"
+
+#: templates/base.html:85 templates/registration/registration_form.html:6
+#: templates/registration/registration_form.html:10
+msgid "Register"
+msgstr "Registracija"
+
+#: templates/base.html:137
+msgid "Kolozsi Róbert"
+msgstr "Robert Koloži"

@@ -1,6 +1,7 @@
 {% extends "base.html" %}
 {% load staticfiles %}
 {% load fb_versions %}
+{% load i18n %}
 
 {% block title %}
 Listing Recipes
@@ -11,10 +12,10 @@ Listing Recipes
 <h2>{{ recipe.title }}</h2>
 
 {% if user.is_authenticated and user.is_active %}
-<a class="btn btn-lg btn-primary" href="{% url 'admin:recipe_recipe_change' recipe.pk %}" target="_blank">Edit</a>
+<a class="btn btn-lg btn-primary" href="{% url 'admin:recipe_recipe_change' recipe.pk %}" target="_blank">{% trans "Edit" %}</a>
 {% endif %}
 
-<h3><strong>Ingredients:</strong></h3>
+<h3><strong>{% trans "Ingredients:" %} </strong></h3>
 <ul>
 {% for ingredient in recipe.ingredient.all %}
 <li>
@@ -40,7 +41,7 @@ Listing Recipes
 </div>
 
 <div>
-<a class="btn btn-lg" href="{% url 'recipe:list' %}">Return to recipe list</a>
+    <a class="btn btn-lg" href="{% url 'recipe:list' %}">{% trans "Return to recipe list" %}</a>
 </div>
 
 <script>

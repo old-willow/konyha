@@ -2,6 +2,7 @@ from django.contrib import admin
 from django.utils.html import mark_safe
 from django.db import models
 from django.forms import ClearableFileInput
+from django.utils.translation import ugettext_lazy as _
 
 #from mce_filebrowser.admin import MCEFilebrowserAdmin
 
@@ -18,12 +19,12 @@ class RecipeAuthorAdmin(admin.ModelAdmin):
     }
     fieldsets = (
         ('User', {
-            'description': mark_safe('<p>Please choose from registered users that belong to <strong>Chef</strong> group.</p>'),
+            'description': mark_safe(_('<p>Please choose from registered users that belong to <strong>Chef</strong> group.</p>')),
             'fields': ('user', )
         }),
         ('User profile image', {
             #'classes': ('collapse', ),
-            'description': mark_safe('It is <strong>mandatory</strong> to uploada profile image'),
+            'description': mark_safe(_('It is <strong>mandatory</strong> to uploada profile image')),
             'fields': (('image', 'image_preview', ), ),
         }),
     )

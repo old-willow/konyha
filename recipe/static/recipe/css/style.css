@@ -26,3 +26,10 @@ div.clear {
     position: absolute;
     bottom: 20px;
 }
+
+.footer {
+    position: absolute;
+    left: 0;
+    right: 0;
+    width: 100%;
+}

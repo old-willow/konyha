@@ -1,0 +1,171 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-04-25 10:19+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: recipe/admin.py:22
+msgid ""
+"<p>Please choose from registered users that belong to <strong>Chef</strong> "
+"group.</p>"
+msgstr ""
+"<p>Kérem válasszon a regisztrált felhasználók közül ki legyen a </"
+"strong>Chef</strong> csoportban.</p>"
+
+#: recipe/admin.py:27
+msgid "It is <strong>mandatory</strong> to uploada profile image"
+msgstr "A profil kép feltöltése <strong>kötelező</strong>"
+
+#: recipe/models.py:14
+msgid "Please provide chef"
+msgstr "Kérem válassza ki a séfet"
+
+#: recipe/models.py:19
+msgid "You have to add chef photo."
+msgstr "A séf fénykép kötelező."
+
+#: recipe/models.py:25
+msgid "Image preview"
+msgstr "Kép nézet"
+
+#: recipe/models.py:53
+msgid "Neutral"
+msgstr "Neutrális"
+
+#: recipe/models.py:54
+msgid "Solty"
+msgstr "Sós"
+
+#: recipe/models.py:55
+msgid "Sweet"
+msgstr "Édes"
+
+#: recipe/models.py:56
+msgid "Bitter"
+msgstr "Keserű"
+
+#: recipe/models.py:57
+msgid "Acid"
+msgstr "Savas"
+
+#: recipe/models.py:71
+msgid "Choose measure unit..."
+msgstr "Válassza ki a mértéket..."
+
+#: recipe/models.py:75
+msgid "Tea spun"
+msgstr "Teás kanál"
+
+#: recipe/models.py:76
+msgid "Table spun"
+msgstr "Nagy kanál"
+
+#: recipe/models.py:77
+msgid "Quantity"
+msgstr "Mennyiség"
+
+#: recipe/models.py:78
+msgid "Piece"
+msgstr "Darb"
+
+#: recipe/models.py:89
+msgid "ingredient"
+msgstr "hozzávaló"
+
+#: recipe/models.py:90
+msgid "included ingredient"
+msgstr "hozzáadott hozzávaló"
+
+#: recipe/models.py:91
+msgid "included ingredients"
+msgstr "hozzáadott hozzávalók"
+
+#: recipe/models.py:96
+msgid "Choose food type..."
+msgstr "Válassza ki az étél típusát..."
+
+#: recipe/models.py:97
+msgid "Soup"
+msgstr "Leves"
+
+#: recipe/models.py:98
+msgid "Stewed Vegetables"
+msgstr "Főzelék"
+
+#: recipe/models.py:99
+msgid "Coocked Meat"
+msgstr "Főzött/párólt hús"
+
+#: recipe/models.py:100
+msgid "Baked Meat"
+msgstr "Sült hús"
+
+#: recipe/models.py:101
+msgid "Solted Cake"
+msgstr "Sós csemege"
+
+#: recipe/models.py:102
+msgid "Sweet Cake"
+msgstr "Édesség"
+
+#: recipe/models.py:103
+msgid "Torte"
+msgstr "Torták"
+
+#: recipe/models.py:104
+msgid "Salad"
+msgstr "Saláták"
+
+#: recipe/models.py:111
+msgid "description"
+msgstr "leírás"
+
+#: recipe/models.py:112
+msgid "Publication date"
+msgstr "Publikácó dátuma"
+
+#: recipe/models.py:113
+msgid "Modification date"
+msgstr "Módosítás dátuma"
+
+#: recipe/models.py:123
+msgid "Source web site"
+msgstr "Forrás weboldal"
+
+#: recipe/models.py:139 recipe/models.py:155
+msgid "Image"
+msgstr "Kép"
+
+#: recipe/templates/recipe/home.html:8
+msgid "Welcome to Cooking Collection Page"
+msgstr "Üdvözöljük a recept kollekciós oldalon"
+
+#: recipe/templates/recipe/home.html:25
+msgid "Detail"
+msgstr "Részletesebben"
+
+#: recipe/templates/recipe/recipe-detail.html:15
+msgid "Edit"
+msgstr "Szerkesztés"
+
+#: recipe/templates/recipe/recipe-detail.html:18
+msgid "Ingredients:"
+msgstr "Hozzávalók:"
+
+#: recipe/templates/recipe/recipe-detail.html:44
+msgid "Return to recipe list"
+msgstr "Vissza a recept listára"
