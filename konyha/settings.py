@@ -27,7 +27,7 @@ SECRET_KEY = 'q=2s^luwp1tdozpo+%+gb_+*aj2nw%i@w9t8-4#say3)b@+fi@'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['konyha.eld', ]
+ALLOWED_HOSTS = ['www.konyha.eld.', 'konyha.eld', ]
 
 
 # Application definition
@@ -124,7 +124,8 @@ REGISTRATION_OPEN = True
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+#TIME_ZONE = 'UTC'
+TIME_ZONE = 'Europe/Belgrade'
 
 USE_I18N = True
 
@@ -133,13 +134,14 @@ USE_L10N = True
 USE_TZ = True
 
 LANGUAGES = (
+    ('en-us', _('English')),
     ('hu', _('Hungarian')),
     ('sr-latn', _('Serbian')),
-    ('en-us', _('English')),
 )
 
-LOCALE_PATH = (
+LOCALE_PATHS = (
     os.path.join(BASE_DIR, 'locale'),
+    os.path.join(BASE_DIR, 'recipe', 'locale'),
 )
 
 # Static files (CSS, JavaScript, Images)

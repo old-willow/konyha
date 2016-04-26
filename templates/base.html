@@ -23,6 +23,22 @@
 
     <body>
 
+    {% comment %}
+    {% get_current_language as LANGUAGE_CODE %}
+    Current language: {{ LANGUAGE_CODE }} <br />
+    {% language 'hu' %}
+    {% get_current_language as LANGUAGE_CODE %}
+    Current language: {{ LANGUAGE_CODE }} <br />
+    {% endlanguage %}
+    {% get_available_languages as LANGUAGES %}
+    Available languages: {{ LANGUAGES }} <br />
+    {% get_language_info_list for LANGUAGES as langs %}
+    {{ langs }}
+    <br />
+    Language code from view: {{ lang_co }}
+    <br />
+    {% endcomment %}
+
     <form action="{% url 'set_language' %}" method="post">{% csrf_token %}
         <input name="next" type="hidden" value="{{ redirect_to }}" />
         <select name="language">
@@ -31,13 +47,15 @@
             {% get_language_info_list for LANGUAGES as languages %}
             {% for language in languages %}
                 <option value="{{ language.code }}"{% if language.code == LANGUAGE_CODE %} selected="selected"{% endif %}>
-                    {{ language.name_local }} ({{ language.code }})
+                {# {{ language.name_local }} ({{ language.code }}) --> #}
+                {{ language.name_local }}
                 </option>
             {% endfor %}
         </select>
         <input type="submit" value="Go" />
     </form>
 
+    {{ request.LANGUAGE_CODE }}
 
     <header class="navbar-inverse" role="banner">
     <div class="container">

@@ -31,7 +31,11 @@ from recipe import views as recipe_views
 #]
 
 urlpatterns = [
+    url(r'^i18n/', include('django.conf.urls.i18n')),
+
     url(r'^$', recipe_views.home),
+    url(_(r'^accounts/logout/$'), 'django.contrib.auth.views.logout', {'next_page': '/'}),
+    url(_(r'^accounts/'), include('registration.backends.simple.urls')),
     #url(r'^accounts/register/$', recipe_views.Registration.as_view()),  # test purpose
     #url(r'^accounts/login/$', 'django.contrib.auth.views.login'),
     #url(r'^accounts/logout/$', 'django.contrib.auth.views.logout', {'next_page': '/'}),
@@ -39,22 +43,15 @@ urlpatterns = [
     url(r'^admin/filebrowser/', site.urls),
     url(r'^grappelli/', include('grappelli.urls')),
     url(r'^tinymce/', include('tinymce.urls')),
-    #url(r'^media/(?P<path>.*)$', views.static.serve, {'document_root': settings.MEDIA_ROOT}),
 
-    url(r'^i18n/', include('django.conf.urls.i18n')),
     url(r'^admin/', admin.site.urls),
 
-    #url(r'^recipes/', include('recipe.urls', namespace='recipe')),
-
     url(r'^pages/', include('django.contrib.flatpages.urls')),
-    #url(r'^about/$', flatpages.views.flatpage, {'url': '/about/'}, name='about'),
 ]
 
 urlpatterns += i18n_patterns(
-    url(_(r'^accounts/logout/$'), 'django.contrib.auth.views.logout', {'next_page': '/'}),
-    url(_(r'^accounts/'), include('registration.backends.simple.urls')),
     url(_(r'^recipes/'), include('recipe.urls', namespace='recipe')),
-    url(_(r'^about/$'), flatpages.views.flatpage, {'url': '/about/'}, name='about'),
+    url(_(r'^about/$'), flatpages.views.flatpage, {'url': _('/about/')}, name='about'),
 )
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-04-25 10:25+0200\n"
+"POT-Creation-Date: 2016-04-26 10:30+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,33 +17,37 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: konyha/settings.py:136
-msgid "Hungarian"
-msgstr "Mađarski"
-
 #: konyha/settings.py:137
-msgid "Serbian"
-msgstr "Srpski"
-
-#: konyha/settings.py:138
 msgid "English"
 msgstr "Engleski"
 
-#: konyha/urls.py:54
+#: konyha/settings.py:138
+msgid "Hungarian"
+msgstr "Mađarski"
+
+#: konyha/settings.py:139
+msgid "Serbian"
+msgstr "Srpski"
+
+#: konyha/urls.py:37
 msgid "^accounts/logout/$"
 msgstr "^korisnici/odjava/$"
 
-#: konyha/urls.py:55
+#: konyha/urls.py:38
 msgid "^accounts/"
 msgstr "^korisnici/"
 
-#: konyha/urls.py:56
+#: konyha/urls.py:58
 msgid "^recipes/"
 msgstr "^recepti/"
 
-#: konyha/urls.py:57
+#: konyha/urls.py:59
 msgid "^about/$"
 msgstr "^o-nama/$"
+
+#: konyha/urls.py:59
+msgid "/about/"
+msgstr "/o-nama/"
 
 #: templates/admin/recipe/change_form.html:17
 msgid "Home"
@@ -69,31 +73,31 @@ msgstr "Molim Vas ispravite grešku ispod."
 msgid "Please correct the errors below."
 msgstr "Molim Vas ispravite greške ispod."
 
-#: templates/base.html:70
+#: templates/base.html:82
 msgid "Recipes"
 msgstr "Recepti"
 
-#: templates/base.html:71
+#: templates/base.html:83
 msgid "About"
 msgstr "O nama"
 
-#: templates/base.html:81
+#: templates/base.html:93
 msgid "Logout"
 msgstr "Odjava"
 
-#: templates/base.html:81
+#: templates/base.html:93
 msgid "You are logged in as:"
 msgstr "Prijavljeni ste kao:"
 
-#: templates/base.html:83
+#: templates/base.html:95
 msgid "Login"
-msgstr "Prijava"
+msgstr "Prijavljivanje"
 
-#: templates/base.html:85 templates/registration/registration_form.html:6
+#: templates/base.html:97 templates/registration/registration_form.html:6
 #: templates/registration/registration_form.html:10
 msgid "Register"
 msgstr "Registracija"
 
-#: templates/base.html:137
+#: templates/base.html:149
 msgid "Kolozsi Róbert"
 msgstr "Robert Koloži"

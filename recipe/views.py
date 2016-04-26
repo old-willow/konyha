@@ -1,13 +1,20 @@
 from django.shortcuts import render
 from django.http import HttpResponseRedirect
+#from django.utils import translation
 
 from .models import Recipe, Carousel
 
 from registration.views import RegistrationView
 from registration.forms import RegistrationForm
 
+from konyha import settings
+
 
 def home(request):
+    #user_language = 'sr-latn'
+    #translation.activate(user_language)
+    #request.session[translation.LANGUAGE_SESSION_KEY] = user_language
+
     images = Carousel.objects.filter(active=True)
 
     recipes = Recipe.objects.all()[:3]
@@ -18,6 +25,8 @@ def home(request):
         'recipes': recipes,
         #'rec_lead_img': rec_lead_img,
     }
+
+    print settings.LOCALE_PATHS
 
     return render(request, 'recipe/home.html', context)
 
