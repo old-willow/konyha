@@ -9,6 +9,9 @@ from django.utils.translation import ugettext_lazy as _
 from .models import (RecipeAuthor, RecipeImage,
                      RecipeIngredient, Recipe, Ingrediant,
                      Carousel)
+
+from modeltranslation.admin import TranslationAdmin
+
 #from .forms import RecipeIngredientFormset
 
 
@@ -56,7 +59,8 @@ class RecipeIngredientInline(admin.TabularInline):
     extra = 1
 
 
-class RecipeAdmin(admin.ModelAdmin):
+class RecipeAdmin(TranslationAdmin):
+#class RecipeAdmin(admin.ModelAdmin):
 #class RecipeAdmin(MCEFilebrowserAdmin):
     fields = ('title', 'author', 'slug', 'food_type', 'description', 'pub_date',
               'modified_date', 'preparation_time',

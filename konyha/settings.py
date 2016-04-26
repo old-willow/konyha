@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'django.contrib.flatpages',
     'grappelli',
     'filebrowser',
+    'modeltranslation',
     'django.contrib.admin',
     'django_colorbox',
     'tinymce',
@@ -143,6 +144,13 @@ LOCALE_PATHS = (
     os.path.join(BASE_DIR, 'locale'),
     os.path.join(BASE_DIR, 'recipe', 'locale'),
 )
+
+MODELTRANSLATION_DEFAULT_LANGUAGE = 'en-us'
+MODELTRANSLATION_FALLBACK_LANGUAGES = {
+    'default': ('en-us', 'hu', 'sr-latn'),
+    'hu': ('sr-latn', 'en-us'),
+    'sr-latn': ('hu', 'en-us')
+}
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.9/howto/static-files/

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-04-26 10:30+0200\n"
+"POT-Creation-Date: 2016-04-26 15:17+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,29 +18,27 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: recipe/admin.py:22
+#: recipe/admin.py:25
 msgid ""
 "<p>Please choose from registered users that belong to <strong>Chef</strong> "
 "group.</p>"
 msgstr ""
-"<p>Kérem válasszon a regisztrált felhasználók közül ki legyen a </"
-"strong>Chef</strong> csoportban.</p>"
 
-#: recipe/admin.py:27
+#: recipe/admin.py:30
 msgid "It is <strong>mandatory</strong> to uploada profile image"
-msgstr "A profil kép feltöltése <strong>kötelező</strong>"
+msgstr ""
 
 #: recipe/models.py:14
 msgid "Please provide chef"
-msgstr "Kérem válassza ki a séfet"
+msgstr ""
 
 #: recipe/models.py:19
 msgid "You have to add chef photo."
-msgstr "A séf fénykép kötelező."
+msgstr ""
 
 #: recipe/models.py:25
 msgid "Image preview"
-msgstr "Kép nézet"
+msgstr ""
 
 #: recipe/models.py:53
 msgid "Neutral"
@@ -60,15 +58,15 @@ msgstr "Keserű"
 
 #: recipe/models.py:57
 msgid "Acid"
-msgstr "Savas"
+msgstr "Savanyú"
 
 #: recipe/models.py:71
 msgid "Choose measure unit..."
-msgstr "Válassza ki a mértéket..."
+msgstr "Mértek egység"
 
 #: recipe/models.py:75
 msgid "Tea spun"
-msgstr "Teás kanál"
+msgstr "Kis kanál"
 
 #: recipe/models.py:76
 msgid "Table spun"
@@ -80,7 +78,7 @@ msgstr "Mennyiség"
 
 #: recipe/models.py:78
 msgid "Piece"
-msgstr "Darb"
+msgstr "Darab"
 
 #: recipe/models.py:89
 msgid "ingredient"
@@ -88,15 +86,15 @@ msgstr "hozzávaló"
 
 #: recipe/models.py:90
 msgid "included ingredient"
-msgstr "hozzáadott hozzávaló"
+msgstr "hozzávaló"
 
 #: recipe/models.py:91
 msgid "included ingredients"
-msgstr "hozzáadott hozzávalók"
+msgstr "hozzávalók"
 
 #: recipe/models.py:96
 msgid "Choose food type..."
-msgstr "Válassza ki az étél típusát..."
+msgstr ""
 
 #: recipe/models.py:97
 msgid "Soup"
@@ -108,7 +106,7 @@ msgstr "Főzelék"
 
 #: recipe/models.py:99
 msgid "Coocked Meat"
-msgstr "Főzött/párólt hús"
+msgstr "Főtt hús"
 
 #: recipe/models.py:100
 msgid "Baked Meat"
@@ -120,7 +118,7 @@ msgstr "Sós csemege"
 
 #: recipe/models.py:102
 msgid "Sweet Cake"
-msgstr "Édesség"
+msgstr "Édes sütemény"
 
 #: recipe/models.py:103
 msgid "Torte"
@@ -136,11 +134,11 @@ msgstr "leírás"
 
 #: recipe/models.py:112
 msgid "Publication date"
-msgstr "Publikácó dátuma"
+msgstr "Publikácio dátuma"
 
 #: recipe/models.py:113
 msgid "Modification date"
-msgstr "Módosítás dátuma"
+msgstr "Modosítás dátuma"
 
 #: recipe/models.py:123
 msgid "Source web site"
@@ -152,7 +150,7 @@ msgstr "Kép"
 
 #: recipe/templates/recipe/home.html:8
 msgid "Welcome to Cooking Collection Page"
-msgstr "Üdvözöljük a recept kollekciós oldalon"
+msgstr ""
 
 #: recipe/templates/recipe/home.html:25
 msgid "Detail"
