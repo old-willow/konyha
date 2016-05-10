@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-04-26 10:30+0200\n"
+"POT-Creation-Date: 2016-05-09 10:39+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,15 +17,15 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: konyha/settings.py:137
+#: konyha/settings.py:139
 msgid "English"
 msgstr "Engleski"
 
-#: konyha/settings.py:138
+#: konyha/settings.py:140
 msgid "Hungarian"
 msgstr "Mađarski"
 
-#: konyha/settings.py:139
+#: konyha/settings.py:141
 msgid "Serbian"
 msgstr "Srpski"
 
@@ -37,17 +37,13 @@ msgstr "^korisnici/odjava/$"
 msgid "^accounts/"
 msgstr "^korisnici/"
 
-#: konyha/urls.py:58
+#: konyha/urls.py:47
 msgid "^recipes/"
 msgstr "^recepti/"
 
-#: konyha/urls.py:59
+#: konyha/urls.py:52
 msgid "^about/$"
 msgstr "^o-nama/$"
-
-#: konyha/urls.py:59
-msgid "/about/"
-msgstr "/o-nama/"
 
 #: templates/admin/recipe/change_form.html:17
 msgid "Home"
@@ -73,31 +69,36 @@ msgstr "Molim Vas ispravite grešku ispod."
 msgid "Please correct the errors below."
 msgstr "Molim Vas ispravite greške ispod."
 
-#: templates/base.html:82
+#: templates/base.html:116
 msgid "Recipes"
 msgstr "Recepti"
 
-#: templates/base.html:83
+#: templates/base.html:117
 msgid "About"
 msgstr "O nama"
 
-#: templates/base.html:93
+#: templates/base.html:127
 msgid "Logout"
 msgstr "Odjava"
 
-#: templates/base.html:93
+#: templates/base.html:127
 msgid "You are logged in as:"
 msgstr "Prijavljeni ste kao:"
 
-#: templates/base.html:95
+#: templates/base.html:129
 msgid "Login"
 msgstr "Prijavljivanje"
 
-#: templates/base.html:97 templates/registration/registration_form.html:6
+#: templates/base.html:131 templates/registration/registration_form.html:6
 #: templates/registration/registration_form.html:10
 msgid "Register"
 msgstr "Registracija"
 
-#: templates/base.html:149
+#: templates/base.html:183
 msgid "Kolozsi Róbert"
 msgstr "Robert Koloži"
+
+#, fuzzy
+#~| msgid "^about/$"
+#~ msgid "/about/"
+#~ msgstr "^o-nama/$"

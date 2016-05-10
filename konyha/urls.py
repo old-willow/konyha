@@ -44,14 +44,17 @@ urlpatterns = [
     url(r'^grappelli/', include('grappelli.urls')),
     url(r'^tinymce/', include('tinymce.urls')),
 
+    url(_(r'^recipes/'), include('recipe.urls', namespace='recipe')),
+
     url(r'^admin/', admin.site.urls),
 
     url(r'^pages/', include('django.contrib.flatpages.urls')),
+    url(_(r'^about/$'), flatpages.views.flatpage, {'url': '/about/'}, name='about'),
 ]
 
-urlpatterns += i18n_patterns(
-    url(_(r'^recipes/'), include('recipe.urls', namespace='recipe')),
-    url(_(r'^about/$'), flatpages.views.flatpage, {'url': _('/about/')}, name='about'),
-)
+#urlpatterns += i18n_patterns(
+#    url(_(r'^recipes/'), include('recipe.urls', namespace='recipe')),
+#    url(_(r'^about/$'), flatpages.views.flatpage, {'url': '/about/'}, name='about'),
+#)
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

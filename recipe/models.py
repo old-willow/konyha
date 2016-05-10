@@ -86,7 +86,7 @@ class RecipeIngredient(models.Model):
         return self.ingredient.name + ': ' + self.quantity + ' ' + self.unit
 
     class Meta:
-        ordering = [_('ingredient'), ]
+        ordering = ['ingredient', ]
         verbose_name = _('included ingredient')
         verbose_name = _('included ingredients')
 
@@ -128,6 +128,9 @@ class Recipe(models.Model):
 
     def get_field_name(self):
         return self.verbose_name
+
+    def get_absolute_url(self):
+        return _('recipes/') + self.slug
 
     class Meta:
         ordering = ['-pub_date', 'title', ]

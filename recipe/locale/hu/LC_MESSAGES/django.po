@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-04-26 15:17+0200\n"
+"POT-Creation-Date: 2016-05-09 10:59+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,152 +18,163 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: recipe/admin.py:25
+#: admin.py:25
 msgid ""
 "<p>Please choose from registered users that belong to <strong>Chef</strong> "
 "group.</p>"
 msgstr ""
 
-#: recipe/admin.py:30
+#: admin.py:30
 msgid "It is <strong>mandatory</strong> to uploada profile image"
 msgstr ""
 
-#: recipe/models.py:14
+#: models.py:14
 msgid "Please provide chef"
 msgstr ""
 
-#: recipe/models.py:19
+#: models.py:19
 msgid "You have to add chef photo."
 msgstr ""
 
-#: recipe/models.py:25
+#: models.py:25
 msgid "Image preview"
 msgstr ""
 
-#: recipe/models.py:53
+#: models.py:53
 msgid "Neutral"
 msgstr "Neutrális"
 
-#: recipe/models.py:54
+#: models.py:54
 msgid "Solty"
 msgstr "Sós"
 
-#: recipe/models.py:55
+#: models.py:55
 msgid "Sweet"
 msgstr "Édes"
 
-#: recipe/models.py:56
+#: models.py:56
 msgid "Bitter"
 msgstr "Keserű"
 
-#: recipe/models.py:57
+#: models.py:57
 msgid "Acid"
 msgstr "Savanyú"
 
-#: recipe/models.py:71
+#: models.py:71
 msgid "Choose measure unit..."
 msgstr "Mértek egység"
 
-#: recipe/models.py:75
+#: models.py:75
 msgid "Tea spun"
 msgstr "Kis kanál"
 
-#: recipe/models.py:76
+#: models.py:76
 msgid "Table spun"
 msgstr "Nagy kanál"
 
-#: recipe/models.py:77
+#: models.py:77
 msgid "Quantity"
 msgstr "Mennyiség"
 
-#: recipe/models.py:78
+#: models.py:78
 msgid "Piece"
 msgstr "Darab"
 
-#: recipe/models.py:89
-msgid "ingredient"
-msgstr "hozzávaló"
-
-#: recipe/models.py:90
+#: models.py:90
 msgid "included ingredient"
 msgstr "hozzávaló"
 
-#: recipe/models.py:91
+#: models.py:91
 msgid "included ingredients"
 msgstr "hozzávalók"
 
-#: recipe/models.py:96
+#: models.py:96
 msgid "Choose food type..."
 msgstr ""
 
-#: recipe/models.py:97
+#: models.py:97
 msgid "Soup"
 msgstr "Leves"
 
-#: recipe/models.py:98
+#: models.py:98
 msgid "Stewed Vegetables"
 msgstr "Főzelék"
 
-#: recipe/models.py:99
+#: models.py:99
 msgid "Coocked Meat"
 msgstr "Főtt hús"
 
-#: recipe/models.py:100
+#: models.py:100
 msgid "Baked Meat"
 msgstr "Sült hús"
 
-#: recipe/models.py:101
+#: models.py:101
 msgid "Solted Cake"
 msgstr "Sós csemege"
 
-#: recipe/models.py:102
+#: models.py:102
 msgid "Sweet Cake"
 msgstr "Édes sütemény"
 
-#: recipe/models.py:103
+#: models.py:103
 msgid "Torte"
 msgstr "Torták"
 
-#: recipe/models.py:104
+#: models.py:104
 msgid "Salad"
 msgstr "Saláták"
 
-#: recipe/models.py:111
+#: models.py:111
 msgid "description"
 msgstr "leírás"
 
-#: recipe/models.py:112
+#: models.py:112
 msgid "Publication date"
 msgstr "Publikácio dátuma"
 
-#: recipe/models.py:113
+#: models.py:113
 msgid "Modification date"
 msgstr "Modosítás dátuma"
 
-#: recipe/models.py:123
+#: models.py:123
 msgid "Source web site"
 msgstr "Forrás weboldal"
 
-#: recipe/models.py:139 recipe/models.py:155
+#: models.py:133
+msgid "recipes/"
+msgstr "receptek/"
+
+#: models.py:142 models.py:158
 msgid "Image"
 msgstr "Kép"
 
-#: recipe/templates/recipe/home.html:8
+#: templates/recipe/home.html:8
 msgid "Welcome to Cooking Collection Page"
 msgstr ""
 
-#: recipe/templates/recipe/home.html:25
+#: templates/recipe/home.html:25
 msgid "Detail"
 msgstr "Részletesebben"
 
-#: recipe/templates/recipe/recipe-detail.html:15
+#: templates/recipe/recipe-detail.html:15
 msgid "Edit"
 msgstr "Szerkesztés"
 
-#: recipe/templates/recipe/recipe-detail.html:18
+#: templates/recipe/recipe-detail.html:18
 msgid "Ingredients:"
 msgstr "Hozzávalók:"
 
-#: recipe/templates/recipe/recipe-detail.html:44
+#: templates/recipe/recipe-detail.html:44
 msgid "Return to recipe list"
 msgstr "Vissza a recept listára"
+
+#: urls.py:7
+msgid "^$"
+msgstr ""
+
+#: urls.py:8
+msgid "(?P<slug>[-\\w\\d]+)/$"
+msgstr ""
+
+#~ msgid "ingredient"
+#~ msgstr "hozzávaló"

@@ -1,5 +1,6 @@
 {% load staticfiles %}
 {% load i18n %}
+{% load strip_language_from_url %}
 
 <!DOCTYPE html>
 <html lang="en_us">
@@ -39,8 +40,40 @@
     <br />
     {% endcomment %}
 
-    <form action="{% url 'set_language' %}" method="post">{% csrf_token %}
-        <input name="next" type="hidden" value="{{ redirect_to }}" />
+    {% comment %}{% endcomment %}
+    <div id="language-select">
+        {% get_language_info_list for LANGUAGES as languages %}
+        {% for language in languages %}{{ language.code }}
+            <form action="{% url 'set_language' %}" method="post">
+            {% csrf_token %}
+            <input name="next" type="hidden" value="{% translate_url language.code %}" />
+            <input name="next" type="hidden" value="" />
+            <input name="language" type="hidden" value="{{ language.code }}" />
+            <input type="submit" value="{{ language.name_local|title }}" class="btn-link{% if language.code == LANGUAGE_CODE %} current{% endif %}" />
+            </form>
+        {% endfor %}
+    </div>
+    {% comment %}{% endcomment %}
+
+    {% get_available_languages as languages %}
+    <nav id="language_chooser">
+        <ul>
+            {% for lang_code, lang_name in languages %}
+            {% comment %}<li><a href="{% translate_url lang_code %}">{{ lang_name }}</a></li>{% endcomment %}
+            {% comment %}<li><a href="#">{{ lang_name }}</a></li>{% endcomment %}
+            {#{{ lang_code }}#}
+            {% endfor %}
+        </ul>
+    </nav>
+
+    {#{{ request.get_full_path|slice:'3:' }}#}
+    {#<p class="proba">{{ request.path|strip_language_url }}</p>#}
+{{ request.path }}
+{% comment  %}
+    <form action="{% url 'set_language' %}" method="post">
+        {% csrf_token %}
+        {#<input name="next" type="hidden" value="{% translate_url hu %}" />#}
+        {#<input name="next" type="hidden" value="{{ request.path }}" />#}
         <select name="language">
             {% get_current_language as LANGUAGE_CODE %}
             {% get_available_languages as LANGUAGES %}
@@ -54,8 +87,10 @@
         </select>
         <input type="submit" value="Go" />
     </form>
+{% endcomment %}
 
-    {{ request.LANGUAGE_CODE }}
+    {#{{ request.LANGUAGE_CODE }}#}
+    {#{{ request.path }}#}
 
     <header class="navbar-inverse" role="banner">
     <div class="container">
@@ -89,7 +124,7 @@
         </ul>
         <ul class="nav navbar-nav navbar-right">
             {% if user.is_authenticated %}
-            <li><a class="pull-right" href="/accounts/logout/">{% trans 'Logout' %}</a><span class="loggedin">{% trans 'You are logged in as:' %} {{ user.username }}</span></li>
+            <li><a class="pull-right" href="/accounts/logout/">{% trans 'Logout' %}</a><span class="loggedin">{% trans 'You are logged in as:' %} <a href="{% url 'admin:index'  %}" target="_blank">{{ user.username }}</a></span></li>
             {% else %}
             <li><a class="pull-right" href="/accounts/login/">{% trans 'Login' %}</a></li>
             {% endif %}
@@ -145,7 +180,10 @@
     <div class="navbar navbar-fixed-bootom container-fluid">
         <div class="container text-center container-fluid" style="background-color: #222222;">
             <address>
-                <p class="text-muted credit">{% trans 'Kolozsi Róbert' %} <a href="mailto:robert.kolozsi@gmail.com">robert.kolozsi@gmail.com</a>  2016</p>
+                <p class="text-muted credit">{% trans 'Kolozsi Róbert' %} <a href="mailto:robert.kolozsi@gmail.com">webmaster</a>,  {% current_year_footer %}.</p>
+                {% comment %}
+                <p>{% current_year_footer2 %}</p>
+                {% endcomment %}
             </address>
         </div>
     </div>

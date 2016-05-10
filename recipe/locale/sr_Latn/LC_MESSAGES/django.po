@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-04-26 10:30+0200\n"
+"POT-Creation-Date: 2016-05-09 10:59+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: recipe/admin.py:22
+#: admin.py:25
 msgid ""
 "<p>Please choose from registered users that belong to <strong>Chef</strong> "
 "group.</p>"
@@ -25,146 +25,157 @@ msgstr ""
 "<p>Odaberi registrovane korisnika koji će pripadati <strong>Chef</strong> "
 "grupi.</p>"
 
-#: recipe/admin.py:27
+#: admin.py:30
 msgid "It is <strong>mandatory</strong> to uploada profile image"
 msgstr "Uploadovanje profil slike je <strong>obavezno</strong>"
 
-#: recipe/models.py:14
+#: models.py:14
 msgid "Please provide chef"
 msgstr "Molim odaberi šefa"
 
-#: recipe/models.py:19
+#: models.py:19
 msgid "You have to add chef photo."
 msgstr "Moraš dodati fotografiju šefa."
 
-#: recipe/models.py:25
+#: models.py:25
 msgid "Image preview"
 msgstr "Pregled slile"
 
-#: recipe/models.py:53
+#: models.py:53
 msgid "Neutral"
 msgstr "Neutralno"
 
-#: recipe/models.py:54
+#: models.py:54
 msgid "Solty"
 msgstr "Slano"
 
-#: recipe/models.py:55
+#: models.py:55
 msgid "Sweet"
 msgstr "Slatko"
 
-#: recipe/models.py:56
+#: models.py:56
 msgid "Bitter"
 msgstr "Gorko"
 
-#: recipe/models.py:57
+#: models.py:57
 msgid "Acid"
 msgstr "Kiselo"
 
-#: recipe/models.py:71
+#: models.py:71
 msgid "Choose measure unit..."
 msgstr "Jedinica mere..."
 
-#: recipe/models.py:75
+#: models.py:75
 msgid "Tea spun"
 msgstr "Mala kašičica"
 
-#: recipe/models.py:76
+#: models.py:76
 msgid "Table spun"
 msgstr "Velika kašika"
 
-#: recipe/models.py:77
+#: models.py:77
 msgid "Quantity"
 msgstr "Količina"
 
-#: recipe/models.py:78
+#: models.py:78
 msgid "Piece"
 msgstr "Komad"
 
-#: recipe/models.py:89
-msgid "ingredient"
-msgstr "sastojak"
-
-#: recipe/models.py:90
+#: models.py:90
 msgid "included ingredient"
 msgstr "dodati sastojak"
 
-#: recipe/models.py:91
+#: models.py:91
 msgid "included ingredients"
 msgstr "dadati sastojci"
 
-#: recipe/models.py:96
+#: models.py:96
 msgid "Choose food type..."
 msgstr "Odaberi vrstu hrane..."
 
-#: recipe/models.py:97
+#: models.py:97
 msgid "Soup"
 msgstr "Supa"
 
-#: recipe/models.py:98
+#: models.py:98
 msgid "Stewed Vegetables"
 msgstr "Varivo"
 
-#: recipe/models.py:99
+#: models.py:99
 msgid "Coocked Meat"
 msgstr "Kuvano meso"
 
-#: recipe/models.py:100
+#: models.py:100
 msgid "Baked Meat"
 msgstr "Pečeno meso"
 
-#: recipe/models.py:101
+#: models.py:101
 msgid "Solted Cake"
 msgstr "Slani keksevi"
 
-#: recipe/models.py:102
+#: models.py:102
 msgid "Sweet Cake"
 msgstr "Kolači"
 
-#: recipe/models.py:103
+#: models.py:103
 msgid "Torte"
 msgstr "Torte"
 
-#: recipe/models.py:104
+#: models.py:104
 msgid "Salad"
 msgstr "Salata"
 
-#: recipe/models.py:111
+#: models.py:111
 msgid "description"
 msgstr "opis"
 
-#: recipe/models.py:112
+#: models.py:112
 msgid "Publication date"
 msgstr "Datum publikacije"
 
-#: recipe/models.py:113
+#: models.py:113
 msgid "Modification date"
 msgstr "Datum modifikovanja"
 
-#: recipe/models.py:123
+#: models.py:123
 msgid "Source web site"
 msgstr "Izvorni web sajt"
 
-#: recipe/models.py:139 recipe/models.py:155
+#: models.py:133
+msgid "recipes/"
+msgstr "recepti/"
+
+#: models.py:142 models.py:158
 msgid "Image"
 msgstr "Slika"
 
-#: recipe/templates/recipe/home.html:8
+#: templates/recipe/home.html:8
 msgid "Welcome to Cooking Collection Page"
 msgstr "Dobrodošli na sajt za kolekciju recepata"
 
-#: recipe/templates/recipe/home.html:25
+#: templates/recipe/home.html:25
 msgid "Detail"
 msgstr "Detaljnije"
 
-#: recipe/templates/recipe/recipe-detail.html:15
+#: templates/recipe/recipe-detail.html:15
 msgid "Edit"
 msgstr "Izmeni"
 
-#: recipe/templates/recipe/recipe-detail.html:18
+#: templates/recipe/recipe-detail.html:18
 msgid "Ingredients:"
 msgstr "Sastojci:"
 
-#: recipe/templates/recipe/recipe-detail.html:44
+#: templates/recipe/recipe-detail.html:44
 msgid "Return to recipe list"
 msgstr "Vrati se na listu recepata"
+
+#: urls.py:7
+msgid "^$"
+msgstr ""
+
+#: urls.py:8
+msgid "(?P<slug>[-\\w\\d]+)/$"
+msgstr ""
+
+#~ msgid "ingredient"
+#~ msgstr "sastojak"
