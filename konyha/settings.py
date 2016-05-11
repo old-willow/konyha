@@ -29,6 +29,15 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['www.konyha.eld.', 'konyha.eld', ]
 
+# Debub toolbar settings;
+# if this is not set nothing any admin stuff is not
+# working.
+# dev server restart needed.
+DEBUG_TOOLBAR_PATCH_SETTINGS = False
+
+#DEBUG_TOOLBAR_CONFIG = {
+#    'INTERCEPT_REDIRECTS': False,
+#}
 
 # Application definition
 
@@ -39,6 +48,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.sites',
+    'debug_toolbar',
     'django.contrib.flatpages',
     'grappelli',
     'filebrowser',
@@ -52,6 +62,8 @@ INSTALLED_APPS = [
 
 SITE_ID = 1
 
+INTERNAL_IPS = ('127.0.0.1', )
+
 MIDDLEWARE_CLASSES = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -60,10 +72,11 @@ MIDDLEWARE_CLASSES = [
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.auth.middleware.SessionAuthenticationMiddleware',
-    'recipe.translate_url.TranslateURL',
+    #'recipe.translate_url.TranslateURL',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'django.contrib.flatpages.middleware.FlatpageFallbackMiddleware',
+    'debug_toolbar.middleware.DebugToolbarMiddleware',
 ]
 
 ROOT_URLCONF = 'konyha.urls'

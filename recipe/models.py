@@ -6,6 +6,9 @@ from django.utils.translation import ugettext_lazy as _
 
 from django.utils.html import mark_safe
 
+#from django.conf import settings
+from django.utils import translation
+
 from tinymce import models as tinymce_models
 from filebrowser.fields import FileBrowseField
 
@@ -130,9 +133,20 @@ class Recipe(models.Model):
         return self.verbose_name
 
     def get_absolute_url(self):
-        return _('recipes/') + self.slug
+        cur_lang = translation.get_language()
+        if cur_lang == 'hu' and hasattr(self, 'slug_hu'):
+            slug_field = self.slug_hu
+        if cur_lang == 'sr-latn' and hasattr(self, 'slug_sr_latn'):
+            slug_field = self.slug_sr_latn
+        if cur_lang == 'en-us' and hasattr(self, 'slug_en_us'):
+            slug_field = self.slug_en_us
+
+        return 'recipes/%s/' % slug_field
 
     class Meta:
+        app_label = 'recipe'
+        verbose_name = _('recipe')
+        verbose_name_plural = _('recipes')
         ordering = ['-pub_date', 'title', ]
 
 

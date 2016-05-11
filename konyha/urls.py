@@ -18,12 +18,14 @@ from django.conf.urls.static import static
 from django.contrib import admin
 from django.conf import settings
 from django.contrib import flatpages
-from django.conf.urls.i18n import i18n_patterns
+#from django.conf.urls.i18n import i18n_patterns
 from django.utils.translation import ugettext_lazy as _
+
+import debug_toolbar
 
 from filebrowser.sites import site
 
-from recipe import views as recipe_views
+from recipe.views import home
 
 
 #urlpatterns = [
@@ -33,7 +35,7 @@ from recipe import views as recipe_views
 urlpatterns = [
     url(r'^i18n/', include('django.conf.urls.i18n')),
 
-    url(r'^$', recipe_views.home),
+    url(r'^$', home, name='home'),
     url(_(r'^accounts/logout/$'), 'django.contrib.auth.views.logout', {'next_page': '/'}),
     url(_(r'^accounts/'), include('registration.backends.simple.urls')),
     #url(r'^accounts/register/$', recipe_views.Registration.as_view()),  # test purpose
@@ -46,6 +48,7 @@ urlpatterns = [
 
     url(_(r'^recipes/'), include('recipe.urls', namespace='recipe')),
 
+    url(r'^__debug__/', include(debug_toolbar.urls)),
     url(r'^admin/', admin.site.urls),
 
     url(r'^pages/', include('django.contrib.flatpages.urls')),
@@ -56,5 +59,10 @@ urlpatterns = [
 #    url(_(r'^recipes/'), include('recipe.urls', namespace='recipe')),
 #    url(_(r'^about/$'), flatpages.views.flatpage, {'url': '/about/'}, name='about'),
 #)
+
+#if settings.DEBUG:
+#    import debug_toolbar
+#    urlpatterns += url(r'^__debug__/', include(debug_toolbar.urls)),
+
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

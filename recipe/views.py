@@ -50,8 +50,17 @@ def recipe_list(request):
     return render(request, 'recipe/index.html', context)
 
 
-def recipe_detail(request, slug):
-    recipe = Recipe.objects.get(slug=slug)
+def recipe_detail(request, slug=''):
+    #recipe = Recipe.objects.get(slug=slug)
+    cur_lang = translation.get_language()
+    if cur_lang == 'en-us':
+        recipe = Recipe.objects.get(slug=slug)
+
+    if cur_lang == 'hu':
+        recipe = Recipe.objects.get(slug_hu=slug)
+
+    if cur_lang == 'sr-latn':
+        recipe = Recipe.objects.get(slug_sr_latn=slug)
 
     context = {
         'recipe': recipe,
