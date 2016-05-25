@@ -302,13 +302,14 @@ badd +1 templates/logo
 badd +1 templates/registration/logout.html
 badd +6 recipe/templates/recipe/index.html
 badd +5 recipe/translation.py
-badd +78 recipe/templatetags/strip_language_from_url.py
+badd +70 recipe/templatetags/strip_language_from_url.py
 badd +339 ~/.vimrc
 badd +0 recipe/translate_url.py
 badd +7 ~/venv/py2_django_18/lib/python2.7/site-packages/robust_urls/views.py
 badd +19 ~/venv/py2_django_18/lib/python2.7/site-packages/robust_urls/utils.py
 badd +8 ~/venv/py2_django_18/lib/python2.7/site-packages/robust_urls/urls.py
 badd +0 ~/venv/py2_django_18/lib/python2.7/site-packages/robust_urls/middleware.py
+badd +0 locale/hu/LC_MESSAGES/django.po
 argglobal
 silent! argdel *
 argadd recipe/templates/recipe/recipe-detail.html
@@ -317,10 +318,13 @@ edit konyha/urls.py
 set splitbelow splitright
 wincmd _ | wincmd |
 split
-1wincmd k
+wincmd _ | wincmd |
+split
+2wincmd k
 wincmd _ | wincmd |
 vsplit
 1wincmd h
+wincmd w
 wincmd w
 wincmd w
 wincmd t
@@ -329,7 +333,8 @@ exe '1resize ' . ((&lines * 28 + 30) / 60)
 exe 'vert 1resize ' . ((&columns * 136 + 137) / 274)
 exe '2resize ' . ((&lines * 28 + 30) / 60)
 exe 'vert 2resize ' . ((&columns * 137 + 137) / 274)
-exe '3resize ' . ((&lines * 28 + 30) / 60)
+exe '3resize ' . ((&lines * 24 + 30) / 60)
+exe '4resize ' . ((&lines * 3 + 30) / 60)
 argglobal
 let s:cpo_save=&cpo
 set cpo&vim
@@ -583,12 +588,12 @@ setlocal nowinfixwidth
 set nowrap
 setlocal nowrap
 setlocal wrapmargin=0
-let s:l = 21 - ((13 * winheight(0) + 14) / 28)
+let s:l = 66 - ((25 * winheight(0) + 14) / 28)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-21
-normal! 0
+66
+normal! 05|
 wincmd w
 argglobal
 edit recipe/urls.py
@@ -1104,18 +1109,140 @@ setlocal nowinfixheight
 setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
-let s:l = 87 - ((5 * winheight(0) + 14) / 28)
+let s:l = 163 - ((4 * winheight(0) + 12) / 24)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-87
-normal! 05|
+163
+normal! 040|
+wincmd w
+argglobal
+enew
+setlocal keymap=
+setlocal noarabic
+setlocal autoindent
+setlocal backupcopy=
+setlocal balloonexpr=
+setlocal nobinary
+setlocal nobreakindent
+setlocal breakindentopt=
+setlocal bufhidden=wipe
+setlocal buflisted
+setlocal buftype=quickfix
+setlocal cindent
+setlocal cinkeys=0{,0},0),:,0#,!^F,o,O,e
+setlocal cinoptions=
+setlocal cinwords=if,else,while,do,for,switch
+set colorcolumn=+1
+setlocal colorcolumn=+1
+setlocal comments=s1:/*,mb:*,ex:*/,://,b:#,:%,:XCOMM,n:>,fb:-
+setlocal commentstring=/*%s*/
+setlocal complete=.,w,b,u,t,i
+setlocal concealcursor=
+setlocal conceallevel=0
+setlocal completefunc=
+setlocal nocopyindent
+setlocal cryptmethod=
+setlocal nocursorbind
+setlocal nocursorcolumn
+set cursorline
+setlocal cursorline
+setlocal define=
+setlocal dictionary=
+setlocal nodiff
+setlocal equalprg=
+setlocal errorformat=
+setlocal expandtab
+if &filetype != 'qf'
+setlocal filetype=qf
+endif
+setlocal fixendofline
+set foldcolumn=4
+setlocal foldcolumn=4
+setlocal foldenable
+set foldexpr=PythonFoldExpr(v:lnum)
+setlocal foldexpr=PythonFoldExpr(v:lnum)
+setlocal foldignore=#
+set foldlevel=2
+setlocal foldlevel=0
+setlocal foldmarker={{{,}}}
+set foldmethod=marker
+setlocal foldmethod=manual
+setlocal foldminlines=1
+set foldnestmax=10
+setlocal foldnestmax=10
+set foldtext=PythonFoldText()
+setlocal foldtext=PythonFoldText()
+setlocal formatexpr=
+setlocal formatoptions=cq
+setlocal formatlistpat=^\\s*\\d\\+[\\]:.)}\\t\ ]\\s*
+setlocal grepprg=
+setlocal iminsert=2
+setlocal imsearch=2
+setlocal include=
+setlocal includeexpr=
+setlocal indentexpr=pymode#indent#Indent(v:lnum)
+setlocal indentkeys=!^F,o,O,<:>,0),0],0},=elif,=except
+setlocal noinfercase
+setlocal iskeyword=@,48-57,_,192-255
+setlocal keywordprg=
+set linebreak
+setlocal linebreak
+setlocal nolisp
+setlocal lispwords=
+set list
+setlocal list
+setlocal makeprg=
+setlocal matchpairs=(:),{:},[:]
+setlocal modeline
+setlocal nomodifiable
+setlocal nrformats=bin,octal,hex
+set number
+setlocal number
+setlocal numberwidth=4
+setlocal omnifunc=RopeOmni
+setlocal path=
+setlocal nopreserveindent
+setlocal nopreviewwindow
+setlocal quoteescape=\\
+setlocal noreadonly
+setlocal norelativenumber
+setlocal norightleft
+setlocal rightleftcmd=search
+setlocal noscrollbind
+setlocal shiftwidth=4
+setlocal noshortname
+setlocal nosmartindent
+setlocal softtabstop=4
+setlocal nospell
+setlocal spellcapcheck=[.?!]\\_[\\])'\"\	\ ]\\+
+setlocal spellfile=
+setlocal spelllang=en
+setlocal statusline=%!pyeval('powerline.statusline(78)')
+setlocal suffixesadd=
+setlocal noswapfile
+setlocal synmaxcol=300
+if &syntax != 'qf'
+setlocal syntax=qf
+endif
+setlocal tabstop=4
+setlocal tagcase=
+setlocal tags=
+setlocal textwidth=79
+setlocal thesaurus=
+setlocal undofile
+setlocal undolevels=-123456
+setlocal winfixheight
+setlocal nowinfixwidth
+setlocal wrap
+setlocal wrapmargin=0
 wincmd w
 exe '1resize ' . ((&lines * 28 + 30) / 60)
 exe 'vert 1resize ' . ((&columns * 136 + 137) / 274)
 exe '2resize ' . ((&lines * 28 + 30) / 60)
 exe 'vert 2resize ' . ((&columns * 137 + 137) / 274)
-exe '3resize ' . ((&lines * 28 + 30) / 60)
+exe '3resize ' . ((&lines * 24 + 30) / 60)
+exe '4resize ' . ((&lines * 3 + 30) / 60)
 tabedit recipe/translation.py
 set splitbelow splitright
 wincmd t
@@ -1380,7 +1507,7 @@ if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
 9
-normal! 0
+normal! 042|
 tabedit recipe/templates/recipe/home.html
 set splitbelow splitright
 wincmd _ | wincmd |
@@ -2334,12 +2461,12 @@ setlocal nowinfixwidth
 set nowrap
 setlocal nowrap
 setlocal wrapmargin=0
-let s:l = 53 - ((10 * winheight(0) + 14) / 28)
+let s:l = 55 - ((17 * winheight(0) + 14) / 28)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-53
-normal! 056|
+55
+normal! 076|
 wincmd w
 exe '1resize ' . ((&lines * 28 + 30) / 60)
 exe '2resize ' . ((&lines * 28 + 30) / 60)
@@ -3873,17 +4000,277 @@ exe s:l
 normal! zt
 34
 normal! 016|
-tabedit recipe/views.py
+tabedit recipe/templatetags/strip_language_from_url.py
 set splitbelow splitright
 wincmd _ | wincmd |
-split
-1wincmd k
+vsplit
+1wincmd h
 wincmd w
 wincmd t
 set winheight=1 winwidth=1
-exe '1resize ' . ((&lines * 28 + 30) / 60)
-exe '2resize ' . ((&lines * 28 + 30) / 60)
+exe 'vert 1resize ' . ((&columns * 137 + 137) / 274)
+exe 'vert 2resize ' . ((&columns * 136 + 137) / 274)
 argglobal
+let s:cpo_save=&cpo
+set cpo&vim
+inoremap <buffer> <silent> <C-Space> =RopeCodeAssistInsertMode()
+inoremap <buffer> <silent> <Nul> =RopeCodeAssistInsertMode()
+inoremap <buffer> <silent> <S-Tab> =RopeLuckyAssistInsertMode()
+noremap <buffer> <silent> m :emenu Rope . 	
+noremap <buffer> <silent> f :RopeFindOccurrences
+noremap <buffer> <silent> d :RopeShowDoc
+noremap <buffer> <silent> g :RopeGotoDefinition
+nmap <buffer> '[ <Plug>SIG_PrevLineByAlpha
+nmap <buffer> '] <Plug>SIG_NextLineByAlpha
+nnoremap <buffer> <silent> ,b :call pymode#breakpoint#Set(line('.'))
+vnoremap <buffer> <silent> ,r :Pyrun
+nnoremap <buffer> <silent> ,r :Pyrun
+onoremap <buffer> C :call pymode#motion#select('^\s*class\s', 0)
+map <buffer> E :w:!/usr/bin/env python % 
+vnoremap <buffer> <silent> K :call pymode#doc#Show(@*)
+nnoremap <buffer> <silent> K :call pymode#doc#Show(expand('<cword>'))
+onoremap <buffer> M :call pymode#motion#select('^\s*def\s', 0)
+nmap <buffer> [- <Plug>SIG_PrevMarkerByType
+nmap <buffer> [` <Plug>SIG_PrevSpotByPos
+nmap <buffer> [' <Plug>SIG_PrevLineByPos
+vnoremap <buffer> [M :call pymode#motion#vmove('^\s*def\s', 'b')
+vnoremap <buffer> [[ :call pymode#motion#vmove('^\(class\|def\)\s', 'b')
+onoremap <buffer> [M :call pymode#motion#move('^\s*def\s', 'b')
+onoremap <buffer> [C :call pymode#motion#move('^\(class\|def\)\s', 'b')
+onoremap <buffer> [[ :call pymode#motion#move('^\(class\|def\)\s', 'b')
+nnoremap <buffer> [M :call pymode#motion#move('^\s*def\s', 'b')
+nnoremap <buffer> [C :call pymode#motion#move('^\(class\|def\)\s', 'b')
+nnoremap <buffer> [[ :call pymode#motion#move('^\(class\|def\)\s', 'b')
+nnoremap <buffer> \c I#
+nmap <buffer> ]- <Plug>SIG_NextMarkerByType
+nmap <buffer> ]` <Plug>SIG_NextSpotByPos
+nmap <buffer> ]' <Plug>SIG_NextLineByPos
+vnoremap <buffer> ]M :call pymode#motion#vmove('^\s*def\s', '')
+vnoremap <buffer> ]] :call pymode#motion#vmove('^\(class\|def\)\s', '')
+onoremap <buffer> ]M :call pymode#motion#move('^\s*def\s', '')
+onoremap <buffer> ]C :call pymode#motion#move('^\(class\|def\)\s', '')
+onoremap <buffer> ]] :call pymode#motion#move('^\(class\|def\)\s', '')
+nnoremap <buffer> ]M :call pymode#motion#move('^\s*def\s', '')
+nnoremap <buffer> ]C :call pymode#motion#move('^\(class\|def\)\s', '')
+nnoremap <buffer> ]] :call pymode#motion#move('^\(class\|def\)\s', '')
+nmap <buffer> `[ <Plug>SIG_PrevSpotByAlpha
+nmap <buffer> `] <Plug>SIG_NextSpotByAlpha
+vnoremap <buffer> aM :call pymode#motion#select('^\s*def\s', 0)
+onoremap <buffer> aM :call pymode#motion#select('^\s*def\s', 0)
+vnoremap <buffer> aC :call pymode#motion#select('^\s*class\s', 0)
+onoremap <buffer> aC :call pymode#motion#select('^\s*class\s', 0)
+map <buffer> gd /def 
+vnoremap <buffer> iM :call pymode#motion#select('^\s*def\s', 1)
+onoremap <buffer> iM :call pymode#motion#select('^\s*def\s', 1)
+vnoremap <buffer> iC :call pymode#motion#select('^\s*class\s', 1)
+onoremap <buffer> iC :call pymode#motion#select('^\s*class\s', 1)
+nmap <buffer> m<BS> <Plug>SIG_PurgeMarkers
+nmap <buffer> m  <Plug>SIG_PurgeMarks
+nmap <buffer> m, <Plug>SIG_PlaceNextMark
+nnoremap <buffer> <silent> m( :call signature#RemoveMarker("(")
+nnoremap <buffer> <silent> m9 :call signature#ToggleMarker("(")
+nnoremap <buffer> <silent> m* :call signature#RemoveMarker("*")
+nnoremap <buffer> <silent> m8 :call signature#ToggleMarker("*")
+nnoremap <buffer> <silent> m& :call signature#RemoveMarker("&")
+nnoremap <buffer> <silent> m7 :call signature#ToggleMarker("&")
+nnoremap <buffer> <silent> m^ :call signature#RemoveMarker("^")
+nnoremap <buffer> <silent> m6 :call signature#ToggleMarker("^")
+nnoremap <buffer> <silent> m% :call signature#RemoveMarker("%")
+nnoremap <buffer> <silent> m5 :call signature#ToggleMarker("%")
+nnoremap <buffer> <silent> m$ :call signature#RemoveMarker("$")
+nnoremap <buffer> <silent> m4 :call signature#ToggleMarker("$")
+nnoremap <buffer> <silent> m# :call signature#RemoveMarker("#")
+nnoremap <buffer> <silent> m3 :call signature#ToggleMarker("#")
+nnoremap <buffer> <silent> m@ :call signature#RemoveMarker("@")
+nnoremap <buffer> <silent> m2 :call signature#ToggleMarker("@")
+nnoremap <buffer> <silent> m! :call signature#RemoveMarker("!")
+nnoremap <buffer> <silent> m1 :call signature#ToggleMarker("!")
+nnoremap <buffer> <silent> m) :call signature#RemoveMarker(")")
+nnoremap <buffer> <silent> m0 :call signature#ToggleMarker(")")
+nnoremap <buffer> <silent> mZ :call signature#ToggleMark("Z")
+nnoremap <buffer> <silent> mY :call signature#ToggleMark("Y")
+nnoremap <buffer> <silent> mX :call signature#ToggleMark("X")
+nnoremap <buffer> <silent> mW :call signature#ToggleMark("W")
+nnoremap <buffer> <silent> mV :call signature#ToggleMark("V")
+nnoremap <buffer> <silent> mU :call signature#ToggleMark("U")
+nnoremap <buffer> <silent> mT :call signature#ToggleMark("T")
+nnoremap <buffer> <silent> mS :call signature#ToggleMark("S")
+nnoremap <buffer> <silent> mR :call signature#ToggleMark("R")
+nnoremap <buffer> <silent> mQ :call signature#ToggleMark("Q")
+nnoremap <buffer> <silent> mP :call signature#ToggleMark("P")
+nnoremap <buffer> <silent> mO :call signature#ToggleMark("O")
+nnoremap <buffer> <silent> mN :call signature#ToggleMark("N")
+nnoremap <buffer> <silent> mM :call signature#ToggleMark("M")
+nnoremap <buffer> <silent> mL :call signature#ToggleMark("L")
+nnoremap <buffer> <silent> mK :call signature#ToggleMark("K")
+nnoremap <buffer> <silent> mJ :call signature#ToggleMark("J")
+nnoremap <buffer> <silent> mI :call signature#ToggleMark("I")
+nnoremap <buffer> <silent> mH :call signature#ToggleMark("H")
+nnoremap <buffer> <silent> mG :call signature#ToggleMark("G")
+nnoremap <buffer> <silent> mF :call signature#ToggleMark("F")
+nnoremap <buffer> <silent> mE :call signature#ToggleMark("E")
+nnoremap <buffer> <silent> mD :call signature#ToggleMark("D")
+nnoremap <buffer> <silent> mC :call signature#ToggleMark("C")
+nnoremap <buffer> <silent> mB :call signature#ToggleMark("B")
+nnoremap <buffer> <silent> mA :call signature#ToggleMark("A")
+nnoremap <buffer> <silent> mz :call signature#ToggleMark("z")
+nnoremap <buffer> <silent> my :call signature#ToggleMark("y")
+nnoremap <buffer> <silent> mx :call signature#ToggleMark("x")
+nnoremap <buffer> <silent> mw :call signature#ToggleMark("w")
+nnoremap <buffer> <silent> mv :call signature#ToggleMark("v")
+nnoremap <buffer> <silent> mu :call signature#ToggleMark("u")
+nnoremap <buffer> <silent> mt :call signature#ToggleMark("t")
+nnoremap <buffer> <silent> ms :call signature#ToggleMark("s")
+nnoremap <buffer> <silent> mr :call signature#ToggleMark("r")
+nnoremap <buffer> <silent> mq :call signature#ToggleMark("q")
+nnoremap <buffer> <silent> mp :call signature#ToggleMark("p")
+nnoremap <buffer> <silent> mo :call signature#ToggleMark("o")
+nnoremap <buffer> <silent> mn :call signature#ToggleMark("n")
+nnoremap <buffer> <silent> mm :call signature#ToggleMark("m")
+nnoremap <buffer> <silent> ml :call signature#ToggleMark("l")
+nnoremap <buffer> <silent> mk :call signature#ToggleMark("k")
+nnoremap <buffer> <silent> mj :call signature#ToggleMark("j")
+nnoremap <buffer> <silent> mi :call signature#ToggleMark("i")
+nnoremap <buffer> <silent> mh :call signature#ToggleMark("h")
+nnoremap <buffer> <silent> mg :call signature#ToggleMark("g")
+nnoremap <buffer> <silent> mf :call signature#ToggleMark("f")
+nnoremap <buffer> <silent> me :call signature#ToggleMark("e")
+nnoremap <buffer> <silent> md :call signature#ToggleMark("d")
+nnoremap <buffer> <silent> mc :call signature#ToggleMark("c")
+nnoremap <buffer> <silent> mb :call signature#ToggleMark("b")
+nnoremap <buffer> <silent> ma :call signature#ToggleMark("a")
+nnoremap <buffer> Æ :call ToggleFold()
+nnoremap <buffer> æ za
+inoremap <buffer> iff if  :<Left>
+let &cpo=s:cpo_save
+unlet s:cpo_save
+setlocal keymap=
+setlocal noarabic
+setlocal autoindent
+setlocal backupcopy=
+setlocal balloonexpr=
+setlocal nobinary
+setlocal nobreakindent
+setlocal breakindentopt=
+setlocal bufhidden=
+setlocal buflisted
+setlocal buftype=
+setlocal cindent
+setlocal cinkeys=0{,0},0),:,0#,!^F,o,O,e
+setlocal cinoptions=
+setlocal cinwords=if,else,while,do,for,switch
+set colorcolumn=+1
+setlocal colorcolumn=+1
+setlocal comments=s1:/*,mb:*,ex:*/,://,b:#,:%,:XCOMM,n:>,fb:-
+setlocal commentstring=/*%s*/
+setlocal complete=.,w,b,u,t,i
+setlocal concealcursor=
+setlocal conceallevel=0
+setlocal completefunc=
+setlocal nocopyindent
+setlocal cryptmethod=
+setlocal nocursorbind
+setlocal nocursorcolumn
+set cursorline
+setlocal cursorline
+setlocal define=
+setlocal dictionary=
+setlocal nodiff
+setlocal equalprg=
+setlocal errorformat=
+setlocal expandtab
+if &filetype != 'python'
+setlocal filetype=python
+endif
+setlocal fixendofline
+set foldcolumn=4
+setlocal foldcolumn=4
+setlocal foldenable
+set foldexpr=PythonFoldExpr(v:lnum)
+setlocal foldexpr=pymode#folding#expr(v:lnum)
+setlocal foldignore=#
+set foldlevel=2
+setlocal foldlevel=2
+setlocal foldmarker={{{,}}}
+set foldmethod=expr
+setlocal foldmethod=expr
+setlocal foldminlines=1
+set foldnestmax=10
+setlocal foldnestmax=10
+set foldtext=PythonFoldText()
+setlocal foldtext=pymode#folding#text()
+setlocal formatexpr=
+setlocal formatoptions=cq
+setlocal formatlistpat=^\\s*\\d\\+[\\]:.)}\\t\ ]\\s*
+setlocal grepprg=
+setlocal iminsert=2
+setlocal imsearch=2
+setlocal include=
+setlocal includeexpr=
+setlocal indentexpr=GetPythonIndent(v:lnum)
+setlocal indentkeys=!^F,o,O,<:>,0),0],0},=elif,=except
+setlocal noinfercase
+setlocal iskeyword=@,48-57,_,192-255
+setlocal keywordprg=
+setlocal nolinebreak
+setlocal nolisp
+setlocal lispwords=
+set list
+setlocal list
+setlocal makeprg=
+setlocal matchpairs=(:),{:},[:]
+setlocal modeline
+setlocal modifiable
+setlocal nrformats=bin,octal,hex
+set number
+setlocal number
+setlocal numberwidth=4
+setlocal omnifunc=RopeOmni
+setlocal path=
+setlocal nopreserveindent
+setlocal nopreviewwindow
+setlocal quoteescape=\\
+setlocal noreadonly
+setlocal norelativenumber
+setlocal norightleft
+setlocal rightleftcmd=search
+setlocal noscrollbind
+setlocal shiftwidth=4
+setlocal noshortname
+setlocal nosmartindent
+setlocal softtabstop=4
+setlocal nospell
+setlocal spellcapcheck=[.?!]\\_[\\])'\"\	\ ]\\+
+setlocal spellfile=
+setlocal spelllang=en
+setlocal statusline=%!pyeval('powerline.statusline(67)')
+setlocal suffixesadd=
+setlocal swapfile
+setlocal synmaxcol=300
+if &syntax != 'python'
+setlocal syntax=python
+endif
+setlocal tabstop=4
+setlocal tagcase=
+setlocal tags=
+setlocal textwidth=79
+setlocal thesaurus=
+setlocal undofile
+setlocal undolevels=-123456
+setlocal nowinfixheight
+setlocal nowinfixwidth
+set nowrap
+setlocal nowrap
+setlocal wrapmargin=0
+let s:l = 77 - ((25 * winheight(0) + 28) / 57)
+if s:l < 1 | let s:l = 1 | endif
+exe s:l
+normal! zt
+77
+normal! 0
+wincmd w
+argglobal
+edit recipe/views.py
 let s:cpo_save=&cpo
 set cpo&vim
 inoremap <buffer> <silent> <C-Space> =RopeCodeAssistInsertMode()
@@ -4141,276 +4528,16 @@ normal! zo
 normal! zo
 99
 normal! zo
-let s:l = 67 - ((24 * winheight(0) + 14) / 28)
+let s:l = 56 - ((37 * winheight(0) + 28) / 57)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-67
-normal! 05|
+56
+normal! 023|
 wincmd w
-argglobal
-edit recipe/templatetags/strip_language_from_url.py
-let s:cpo_save=&cpo
-set cpo&vim
-inoremap <buffer> <silent> <C-Space> =RopeCodeAssistInsertMode()
-inoremap <buffer> <silent> <Nul> =RopeCodeAssistInsertMode()
-inoremap <buffer> <silent> <S-Tab> =RopeLuckyAssistInsertMode()
-noremap <buffer> <silent> m :emenu Rope . 	
-noremap <buffer> <silent> f :RopeFindOccurrences
-noremap <buffer> <silent> d :RopeShowDoc
-noremap <buffer> <silent> g :RopeGotoDefinition
-nmap <buffer> '[ <Plug>SIG_PrevLineByAlpha
-nmap <buffer> '] <Plug>SIG_NextLineByAlpha
-nnoremap <buffer> <silent> ,b :call pymode#breakpoint#Set(line('.'))
-vnoremap <buffer> <silent> ,r :Pyrun
-nnoremap <buffer> <silent> ,r :Pyrun
-onoremap <buffer> C :call pymode#motion#select('^\s*class\s', 0)
-map <buffer> E :w:!/usr/bin/env python % 
-vnoremap <buffer> <silent> K :call pymode#doc#Show(@*)
-nnoremap <buffer> <silent> K :call pymode#doc#Show(expand('<cword>'))
-onoremap <buffer> M :call pymode#motion#select('^\s*def\s', 0)
-nmap <buffer> [- <Plug>SIG_PrevMarkerByType
-nmap <buffer> [` <Plug>SIG_PrevSpotByPos
-nmap <buffer> [' <Plug>SIG_PrevLineByPos
-vnoremap <buffer> [M :call pymode#motion#vmove('^\s*def\s', 'b')
-vnoremap <buffer> [[ :call pymode#motion#vmove('^\(class\|def\)\s', 'b')
-onoremap <buffer> [M :call pymode#motion#move('^\s*def\s', 'b')
-onoremap <buffer> [C :call pymode#motion#move('^\(class\|def\)\s', 'b')
-onoremap <buffer> [[ :call pymode#motion#move('^\(class\|def\)\s', 'b')
-nnoremap <buffer> [M :call pymode#motion#move('^\s*def\s', 'b')
-nnoremap <buffer> [C :call pymode#motion#move('^\(class\|def\)\s', 'b')
-nnoremap <buffer> [[ :call pymode#motion#move('^\(class\|def\)\s', 'b')
-nnoremap <buffer> \c I#
-nmap <buffer> ]- <Plug>SIG_NextMarkerByType
-nmap <buffer> ]` <Plug>SIG_NextSpotByPos
-nmap <buffer> ]' <Plug>SIG_NextLineByPos
-vnoremap <buffer> ]M :call pymode#motion#vmove('^\s*def\s', '')
-vnoremap <buffer> ]] :call pymode#motion#vmove('^\(class\|def\)\s', '')
-onoremap <buffer> ]M :call pymode#motion#move('^\s*def\s', '')
-onoremap <buffer> ]C :call pymode#motion#move('^\(class\|def\)\s', '')
-onoremap <buffer> ]] :call pymode#motion#move('^\(class\|def\)\s', '')
-nnoremap <buffer> ]M :call pymode#motion#move('^\s*def\s', '')
-nnoremap <buffer> ]C :call pymode#motion#move('^\(class\|def\)\s', '')
-nnoremap <buffer> ]] :call pymode#motion#move('^\(class\|def\)\s', '')
-nmap <buffer> `[ <Plug>SIG_PrevSpotByAlpha
-nmap <buffer> `] <Plug>SIG_NextSpotByAlpha
-vnoremap <buffer> aM :call pymode#motion#select('^\s*def\s', 0)
-onoremap <buffer> aM :call pymode#motion#select('^\s*def\s', 0)
-vnoremap <buffer> aC :call pymode#motion#select('^\s*class\s', 0)
-onoremap <buffer> aC :call pymode#motion#select('^\s*class\s', 0)
-map <buffer> gd /def 
-vnoremap <buffer> iM :call pymode#motion#select('^\s*def\s', 1)
-onoremap <buffer> iM :call pymode#motion#select('^\s*def\s', 1)
-vnoremap <buffer> iC :call pymode#motion#select('^\s*class\s', 1)
-onoremap <buffer> iC :call pymode#motion#select('^\s*class\s', 1)
-nmap <buffer> m<BS> <Plug>SIG_PurgeMarkers
-nmap <buffer> m  <Plug>SIG_PurgeMarks
-nmap <buffer> m, <Plug>SIG_PlaceNextMark
-nnoremap <buffer> <silent> m( :call signature#RemoveMarker("(")
-nnoremap <buffer> <silent> m9 :call signature#ToggleMarker("(")
-nnoremap <buffer> <silent> m* :call signature#RemoveMarker("*")
-nnoremap <buffer> <silent> m8 :call signature#ToggleMarker("*")
-nnoremap <buffer> <silent> m& :call signature#RemoveMarker("&")
-nnoremap <buffer> <silent> m7 :call signature#ToggleMarker("&")
-nnoremap <buffer> <silent> m^ :call signature#RemoveMarker("^")
-nnoremap <buffer> <silent> m6 :call signature#ToggleMarker("^")
-nnoremap <buffer> <silent> m% :call signature#RemoveMarker("%")
-nnoremap <buffer> <silent> m5 :call signature#ToggleMarker("%")
-nnoremap <buffer> <silent> m$ :call signature#RemoveMarker("$")
-nnoremap <buffer> <silent> m4 :call signature#ToggleMarker("$")
-nnoremap <buffer> <silent> m# :call signature#RemoveMarker("#")
-nnoremap <buffer> <silent> m3 :call signature#ToggleMarker("#")
-nnoremap <buffer> <silent> m@ :call signature#RemoveMarker("@")
-nnoremap <buffer> <silent> m2 :call signature#ToggleMarker("@")
-nnoremap <buffer> <silent> m! :call signature#RemoveMarker("!")
-nnoremap <buffer> <silent> m1 :call signature#ToggleMarker("!")
-nnoremap <buffer> <silent> m) :call signature#RemoveMarker(")")
-nnoremap <buffer> <silent> m0 :call signature#ToggleMarker(")")
-nnoremap <buffer> <silent> mZ :call signature#ToggleMark("Z")
-nnoremap <buffer> <silent> mY :call signature#ToggleMark("Y")
-nnoremap <buffer> <silent> mX :call signature#ToggleMark("X")
-nnoremap <buffer> <silent> mW :call signature#ToggleMark("W")
-nnoremap <buffer> <silent> mV :call signature#ToggleMark("V")
-nnoremap <buffer> <silent> mU :call signature#ToggleMark("U")
-nnoremap <buffer> <silent> mT :call signature#ToggleMark("T")
-nnoremap <buffer> <silent> mS :call signature#ToggleMark("S")
-nnoremap <buffer> <silent> mR :call signature#ToggleMark("R")
-nnoremap <buffer> <silent> mQ :call signature#ToggleMark("Q")
-nnoremap <buffer> <silent> mP :call signature#ToggleMark("P")
-nnoremap <buffer> <silent> mO :call signature#ToggleMark("O")
-nnoremap <buffer> <silent> mN :call signature#ToggleMark("N")
-nnoremap <buffer> <silent> mM :call signature#ToggleMark("M")
-nnoremap <buffer> <silent> mL :call signature#ToggleMark("L")
-nnoremap <buffer> <silent> mK :call signature#ToggleMark("K")
-nnoremap <buffer> <silent> mJ :call signature#ToggleMark("J")
-nnoremap <buffer> <silent> mI :call signature#ToggleMark("I")
-nnoremap <buffer> <silent> mH :call signature#ToggleMark("H")
-nnoremap <buffer> <silent> mG :call signature#ToggleMark("G")
-nnoremap <buffer> <silent> mF :call signature#ToggleMark("F")
-nnoremap <buffer> <silent> mE :call signature#ToggleMark("E")
-nnoremap <buffer> <silent> mD :call signature#ToggleMark("D")
-nnoremap <buffer> <silent> mC :call signature#ToggleMark("C")
-nnoremap <buffer> <silent> mB :call signature#ToggleMark("B")
-nnoremap <buffer> <silent> mA :call signature#ToggleMark("A")
-nnoremap <buffer> <silent> mz :call signature#ToggleMark("z")
-nnoremap <buffer> <silent> my :call signature#ToggleMark("y")
-nnoremap <buffer> <silent> mx :call signature#ToggleMark("x")
-nnoremap <buffer> <silent> mw :call signature#ToggleMark("w")
-nnoremap <buffer> <silent> mv :call signature#ToggleMark("v")
-nnoremap <buffer> <silent> mu :call signature#ToggleMark("u")
-nnoremap <buffer> <silent> mt :call signature#ToggleMark("t")
-nnoremap <buffer> <silent> ms :call signature#ToggleMark("s")
-nnoremap <buffer> <silent> mr :call signature#ToggleMark("r")
-nnoremap <buffer> <silent> mq :call signature#ToggleMark("q")
-nnoremap <buffer> <silent> mp :call signature#ToggleMark("p")
-nnoremap <buffer> <silent> mo :call signature#ToggleMark("o")
-nnoremap <buffer> <silent> mn :call signature#ToggleMark("n")
-nnoremap <buffer> <silent> mm :call signature#ToggleMark("m")
-nnoremap <buffer> <silent> ml :call signature#ToggleMark("l")
-nnoremap <buffer> <silent> mk :call signature#ToggleMark("k")
-nnoremap <buffer> <silent> mj :call signature#ToggleMark("j")
-nnoremap <buffer> <silent> mi :call signature#ToggleMark("i")
-nnoremap <buffer> <silent> mh :call signature#ToggleMark("h")
-nnoremap <buffer> <silent> mg :call signature#ToggleMark("g")
-nnoremap <buffer> <silent> mf :call signature#ToggleMark("f")
-nnoremap <buffer> <silent> me :call signature#ToggleMark("e")
-nnoremap <buffer> <silent> md :call signature#ToggleMark("d")
-nnoremap <buffer> <silent> mc :call signature#ToggleMark("c")
-nnoremap <buffer> <silent> mb :call signature#ToggleMark("b")
-nnoremap <buffer> <silent> ma :call signature#ToggleMark("a")
-nnoremap <buffer> Æ :call ToggleFold()
-nnoremap <buffer> æ za
-inoremap <buffer> iff if  :<Left>
-let &cpo=s:cpo_save
-unlet s:cpo_save
-setlocal keymap=
-setlocal noarabic
-setlocal autoindent
-setlocal backupcopy=
-setlocal balloonexpr=
-setlocal nobinary
-setlocal nobreakindent
-setlocal breakindentopt=
-setlocal bufhidden=
-setlocal buflisted
-setlocal buftype=
-setlocal cindent
-setlocal cinkeys=0{,0},0),:,0#,!^F,o,O,e
-setlocal cinoptions=
-setlocal cinwords=if,else,while,do,for,switch
-set colorcolumn=+1
-setlocal colorcolumn=+1
-setlocal comments=s1:/*,mb:*,ex:*/,://,b:#,:%,:XCOMM,n:>,fb:-
-setlocal commentstring=/*%s*/
-setlocal complete=.,w,b,u,t,i
-setlocal concealcursor=
-setlocal conceallevel=0
-setlocal completefunc=
-setlocal nocopyindent
-setlocal cryptmethod=
-setlocal nocursorbind
-setlocal nocursorcolumn
-set cursorline
-setlocal cursorline
-setlocal define=
-setlocal dictionary=
-setlocal nodiff
-setlocal equalprg=
-setlocal errorformat=
-setlocal expandtab
-if &filetype != 'python'
-setlocal filetype=python
-endif
-setlocal fixendofline
-set foldcolumn=4
-setlocal foldcolumn=4
-setlocal foldenable
-set foldexpr=PythonFoldExpr(v:lnum)
-setlocal foldexpr=pymode#folding#expr(v:lnum)
-setlocal foldignore=#
-set foldlevel=2
-setlocal foldlevel=2
-setlocal foldmarker={{{,}}}
-set foldmethod=expr
-setlocal foldmethod=expr
-setlocal foldminlines=1
-set foldnestmax=10
-setlocal foldnestmax=10
-set foldtext=PythonFoldText()
-setlocal foldtext=pymode#folding#text()
-setlocal formatexpr=
-setlocal formatoptions=cq
-setlocal formatlistpat=^\\s*\\d\\+[\\]:.)}\\t\ ]\\s*
-setlocal grepprg=
-setlocal iminsert=2
-setlocal imsearch=2
-setlocal include=
-setlocal includeexpr=
-setlocal indentexpr=GetPythonIndent(v:lnum)
-setlocal indentkeys=!^F,o,O,<:>,0),0],0},=elif,=except
-setlocal noinfercase
-setlocal iskeyword=@,48-57,_,192-255
-setlocal keywordprg=
-setlocal nolinebreak
-setlocal nolisp
-setlocal lispwords=
-set list
-setlocal list
-setlocal makeprg=
-setlocal matchpairs=(:),{:},[:]
-setlocal modeline
-setlocal modifiable
-setlocal nrformats=bin,octal,hex
-set number
-setlocal number
-setlocal numberwidth=4
-setlocal omnifunc=RopeOmni
-setlocal path=
-setlocal nopreserveindent
-setlocal nopreviewwindow
-setlocal quoteescape=\\
-setlocal noreadonly
-setlocal norelativenumber
-setlocal norightleft
-setlocal rightleftcmd=search
-setlocal noscrollbind
-setlocal shiftwidth=4
-setlocal noshortname
-setlocal nosmartindent
-setlocal softtabstop=4
-setlocal nospell
-setlocal spellcapcheck=[.?!]\\_[\\])'\"\	\ ]\\+
-setlocal spellfile=
-setlocal spelllang=en
-setlocal statusline=%!pyeval('powerline.statusline(16)')
-setlocal suffixesadd=
-setlocal swapfile
-setlocal synmaxcol=300
-if &syntax != 'python'
-setlocal syntax=python
-endif
-setlocal tabstop=4
-setlocal tagcase=
-setlocal tags=
-setlocal textwidth=79
-setlocal thesaurus=
-setlocal undofile
-setlocal undolevels=-123456
-setlocal nowinfixheight
-setlocal nowinfixwidth
-set nowrap
-setlocal nowrap
-setlocal wrapmargin=0
-let s:l = 63 - ((8 * winheight(0) + 14) / 28)
-if s:l < 1 | let s:l = 1 | endif
-exe s:l
-normal! zt
-63
-normal! 0
-wincmd w
-exe '1resize ' . ((&lines * 28 + 30) / 60)
-exe '2resize ' . ((&lines * 28 + 30) / 60)
-tabnext 1
+exe 'vert 1resize ' . ((&columns * 137 + 137) / 274)
+exe 'vert 2resize ' . ((&columns * 136 + 137) / 274)
+tabnext 8
 set stal=1
 if exists('s:wipebuf')
   silent exe 'bwipe ' . s:wipebuf

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-05-09 10:59+0200\n"
+"POT-Creation-Date: 2016-05-11 14:06+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,161 +18,169 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: admin.py:25
+#: recipe/admin.py:25
 msgid ""
 "<p>Please choose from registered users that belong to <strong>Chef</strong> "
 "group.</p>"
 msgstr ""
 
-#: admin.py:30
+#: recipe/admin.py:30
 msgid "It is <strong>mandatory</strong> to uploada profile image"
 msgstr ""
 
-#: models.py:14
+#: recipe/models.py:17
 msgid "Please provide chef"
 msgstr ""
 
-#: models.py:19
+#: recipe/models.py:22
 msgid "You have to add chef photo."
 msgstr ""
 
-#: models.py:25
+#: recipe/models.py:28
 msgid "Image preview"
 msgstr ""
 
-#: models.py:53
+#: recipe/models.py:56
 msgid "Neutral"
 msgstr "Neutrális"
 
-#: models.py:54
+#: recipe/models.py:57
 msgid "Solty"
 msgstr "Sós"
 
-#: models.py:55
+#: recipe/models.py:58
 msgid "Sweet"
 msgstr "Édes"
 
-#: models.py:56
+#: recipe/models.py:59
 msgid "Bitter"
 msgstr "Keserű"
 
-#: models.py:57
+#: recipe/models.py:60
 msgid "Acid"
 msgstr "Savanyú"
 
-#: models.py:71
+#: recipe/models.py:74
 msgid "Choose measure unit..."
 msgstr "Mértek egység"
 
-#: models.py:75
+#: recipe/models.py:78
 msgid "Tea spun"
 msgstr "Kis kanál"
 
-#: models.py:76
+#: recipe/models.py:79
 msgid "Table spun"
 msgstr "Nagy kanál"
 
-#: models.py:77
+#: recipe/models.py:80
 msgid "Quantity"
 msgstr "Mennyiség"
 
-#: models.py:78
+#: recipe/models.py:81
 msgid "Piece"
 msgstr "Darab"
 
-#: models.py:90
+#: recipe/models.py:93
 msgid "included ingredient"
 msgstr "hozzávaló"
 
-#: models.py:91
+#: recipe/models.py:94
 msgid "included ingredients"
 msgstr "hozzávalók"
 
-#: models.py:96
+#: recipe/models.py:99
 msgid "Choose food type..."
 msgstr ""
 
-#: models.py:97
+#: recipe/models.py:100
 msgid "Soup"
 msgstr "Leves"
 
-#: models.py:98
+#: recipe/models.py:101
 msgid "Stewed Vegetables"
 msgstr "Főzelék"
 
-#: models.py:99
+#: recipe/models.py:102
 msgid "Coocked Meat"
 msgstr "Főtt hús"
 
-#: models.py:100
+#: recipe/models.py:103
 msgid "Baked Meat"
 msgstr "Sült hús"
 
-#: models.py:101
+#: recipe/models.py:104
 msgid "Solted Cake"
 msgstr "Sós csemege"
 
-#: models.py:102
+#: recipe/models.py:105
 msgid "Sweet Cake"
 msgstr "Édes sütemény"
 
-#: models.py:103
+#: recipe/models.py:106
 msgid "Torte"
 msgstr "Torták"
 
-#: models.py:104
+#: recipe/models.py:107
 msgid "Salad"
 msgstr "Saláták"
 
-#: models.py:111
+#: recipe/models.py:114
 msgid "description"
 msgstr "leírás"
 
-#: models.py:112
+#: recipe/models.py:115
 msgid "Publication date"
 msgstr "Publikácio dátuma"
 
-#: models.py:113
+#: recipe/models.py:116
 msgid "Modification date"
 msgstr "Modosítás dátuma"
 
-#: models.py:123
+#: recipe/models.py:126
 msgid "Source web site"
 msgstr "Forrás weboldal"
 
-#: models.py:133
-msgid "recipes/"
+#: recipe/models.py:148
+#, fuzzy
+#| msgid "recipes/"
+msgid "recipe"
 msgstr "receptek/"
 
-#: models.py:142 models.py:158
+#: recipe/models.py:149
+#, fuzzy
+#| msgid "recipes/"
+msgid "recipes"
+msgstr "receptek/"
+
+#: recipe/models.py:156 recipe/models.py:172
 msgid "Image"
 msgstr "Kép"
 
-#: templates/recipe/home.html:8
+#: recipe/templates/recipe/home.html:8
 msgid "Welcome to Cooking Collection Page"
 msgstr ""
 
-#: templates/recipe/home.html:25
+#: recipe/templates/recipe/home.html:25
 msgid "Detail"
 msgstr "Részletesebben"
 
-#: templates/recipe/recipe-detail.html:15
+#: recipe/templates/recipe/recipe-detail.html:15
 msgid "Edit"
 msgstr "Szerkesztés"
 
-#: templates/recipe/recipe-detail.html:18
+#: recipe/templates/recipe/recipe-detail.html:18
 msgid "Ingredients:"
 msgstr "Hozzávalók:"
 
-#: templates/recipe/recipe-detail.html:44
+#: recipe/templates/recipe/recipe-detail.html:44
 msgid "Return to recipe list"
 msgstr "Vissza a recept listára"
 
-#: urls.py:7
+#: recipe/urls.py:7
 msgid "^$"
 msgstr ""
 
-#: urls.py:8
+#: recipe/urls.py:8
 msgid "(?P<slug>[-\\w\\d]+)/$"
 msgstr ""
 

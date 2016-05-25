@@ -137,7 +137,7 @@ REGISTRATION_OPEN = True
 # Internationalization
 # https://docs.djangoproject.com/en/1.9/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'en'  # This is the default language
 
 #TIME_ZONE = 'UTC'
 TIME_ZONE = 'Europe/Belgrade'
@@ -148,10 +148,11 @@ USE_L10N = True
 
 USE_TZ = True
 
+gettext = lambda s: s
 LANGUAGES = (
-    ('en-us', _('English')),
-    ('hu', _('Hungarian')),
-    ('sr-latn', _('Serbian')),
+    ('en', gettext('English')),
+    ('hu', gettext('Hungarian')),
+    ('sr-latn', gettext('Serbian')),
 )
 
 LOCALE_PATHS = (
@@ -159,11 +160,11 @@ LOCALE_PATHS = (
     os.path.join(BASE_DIR, 'recipe', 'locale'),
 )
 
-MODELTRANSLATION_DEFAULT_LANGUAGE = 'en-us'
+MODELTRANSLATION_DEFAULT_LANGUAGE = 'en'
 MODELTRANSLATION_FALLBACK_LANGUAGES = {
-    'default': ('en-us', 'hu', 'sr-latn'),
-    'hu': ('sr-latn', 'en-us'),
-    'sr-latn': ('hu', 'en-us')
+    'default': ('en', 'hu', 'sr-latn'),
+    'hu': ('sr-latn', 'en'),
+    'sr-latn': ('hu', 'en')
 }
 
 # Static files (CSS, JavaScript, Images)

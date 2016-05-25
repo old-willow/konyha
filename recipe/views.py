@@ -53,7 +53,7 @@ def recipe_list(request):
 def recipe_detail(request, slug=''):
     #recipe = Recipe.objects.get(slug=slug)
     cur_lang = translation.get_language()
-    if cur_lang == 'en-us':
+    if cur_lang == 'en':
         recipe = Recipe.objects.get(slug=slug)
 
     if cur_lang == 'hu':

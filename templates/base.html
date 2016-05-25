@@ -44,13 +44,15 @@
     {% comment %}{% change_lang 'en-us' %}{% endcomment %}
     <div id="language-select">
         {% get_language_info_list for LANGUAGES as languages %}
+        {{ languages }} {{ LANGUAGE_CODE }}
         {% for language in languages %}
+        {{ language }}
             <form action="{% url 'set_language' %}" method="post">
             {% csrf_token %}
             {#<input name="next" type="hidden" value="{% translate_url language.code %}" />#}
             <input name="next" type="hidden" value="{% change_lang language.code %}" />
             <input name="language" type="hidden" value="{{ language.code }}" />
-            <input type="submit" value="{{ language.code|title }}" class="btn-link{% if language.code == LANGUAGE_CODE %} current{% endif %}" />
+            <input type="submit" value="{{ language.name }}" class="btn-link{% if language.code == LANGUAGE_CODE %} current{% endif %}" />
             </form>
         {% endfor %}
     </div>
